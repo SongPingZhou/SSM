@@ -15,7 +15,6 @@
 						submitLoginForm();
 					} 
 				}
-				
 				/* 将验证码隐藏 */
 				$("#yzm").hide();
 				/* 获取cookis的值 */

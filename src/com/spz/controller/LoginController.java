@@ -67,6 +67,8 @@ public class LoginController {
 		//登录失败多次锁定用户
 		return usersService.updateUsers(users);
 	}
+	
+	//将所登录的用户名和密码存到cookie中
 	public void insertCookie(HttpServletResponse resp,String val1,String val2) {
 		Cookie name=new Cookie("u_name", val1);
 		//设置过期时间（以秒为单位）
