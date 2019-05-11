@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC 
+ "-//mybatis.org//DTD Mapper 3.0//EN" 
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.spz.dao.UsersMapper">
+
+	<select id="selectUserBylogin" parameterType="Users" resultType="Users">
+		select u_id,u_name,u_pwd,u_isLockout,u_lastLoginTime,u_createTime,u_pwdWrongTime
+			u_lockTime,u_protectEmail,u_protectMtel from Users 
+			<where>
+				<if test="u_name !=null and u_name !=''">
+					and u_name=#{u_name}
+				</if>
+				<if test="u_pwd !=null and u_pwd !=''">
+					and u_pwd=#{u_pwd}
+				</if>
+				<if test="u_isLockout !=null and u_isLockout !=''">
+					and u_isLockout=#{u_isLockout}
+				</if>
+			</where>
+	</select>
+	
+	<update id="updateUsers" parameterType="Users">
+		update Users
+			<set>
+				<if test="u_name !=null and u_name !=''">
+					u_name=#{u_name},
+				</if>
+				<if test="u_pwd !=null and u_pwd !=''">
+					u_pwd=#{u_pwd},
+				</if>
+				<if test="u_isLockout !=null and u_isLockout !=''">
+					u_isLockout=#{u_isLockout},
+				</if>
+				<if test="u_lastLoginTime !=null and u_lastLoginTime !=''">
+					u_lastLoginTime=#{u_lastLoginTime},
+				</if>
+				<if test="u_isLockout !=null and u_isLockout !=''">
+					u_isLockout=#{u_isLockout},
+				</if>
+			</set>
+			where u_id=#{u_id}
+	</update>
+</mapper>
