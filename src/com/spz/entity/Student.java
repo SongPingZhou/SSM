@@ -44,9 +44,12 @@ public class Student {
 		private String s_preMoneyTime;
 		private Integer u_id;
 <<<<<<< HEAD
+<<<<<<< HEAD
 		
 		private Integer page;
 		private Integer rows;
+=======
+>>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 =======
 >>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 		public Integer getS_id() {
@@ -296,6 +299,10 @@ public class Student {
 			this.s_preMoneyTime = s_preMoneyTime;
 		}
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 =======
 		
 >>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
@@ -305,6 +312,7 @@ public class Student {
 		public void setU_id(Integer u_id) {
 			this.u_id = u_id;
 		}
+<<<<<<< HEAD
 <<<<<<< HEAD
 		public Integer getPage() {
 			return page;
@@ -320,6 +328,8 @@ public class Student {
 		}
 =======
 >>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
+=======
+>>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 		public Student(Integer s_id, String s_name, String s_age, String s_iphone, String s_state, String s_source,
 				String s_courceurl, String s_keywords, String s_address, String s_netpusherld, String a_askerId,
 				String s_qq, String s_wx, String s_content, String s_createTime, String s_learnforward,
@@ -329,7 +339,11 @@ public class Student {
 				String s_inClassContent, String s_askerContent, String s_isdel, String s_fromPart, String s_stuConcern,
 				String s_isbaobei, String s_zixunName, String s_createUser, String s_returnMoneyReason,
 <<<<<<< HEAD
+<<<<<<< HEAD
 				Double s_preMoney, String s_preMoneyTime, Integer u_id, Integer page, Integer rows) {
+=======
+				Double s_preMoney, String s_preMoneyTime, Integer u_id) {
+>>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 =======
 				Double s_preMoney, String s_preMoneyTime, Integer u_id) {
 >>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
@@ -377,8 +391,11 @@ public class Student {
 			this.s_preMoneyTime = s_preMoneyTime;
 			this.u_id = u_id;
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this.page = page;
 			this.rows = rows;
+=======
+>>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 =======
 >>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 		}
@@ -401,6 +418,7 @@ public class Student {
 					+ s_fromPart + ", s_stuConcern=" + s_stuConcern + ", s_isbaobei=" + s_isbaobei + ", s_zixunName="
 					+ s_zixunName + ", s_createUser=" + s_createUser + ", s_returnMoneyReason=" + s_returnMoneyReason
 <<<<<<< HEAD
+<<<<<<< HEAD
 					+ ", s_preMoney=" + s_preMoney + ", s_preMoneyTime=" + s_preMoneyTime + ", u_id=" + u_id + ", page="
 					+ page + ", rows=" + rows + "]";
 		}
@@ -411,6 +429,12 @@ public class Student {
 		
 		
 		
+=======
+					+ ", s_preMoney=" + s_preMoney + ", s_preMoneyTime=" + s_preMoneyTime + ", u_id=" + u_id + "]";
+		}
+		
+		
+>>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 =======
 					+ ", s_preMoney=" + s_preMoney + ", s_preMoneyTime=" + s_preMoneyTime + ", u_id=" + u_id + "]";
 		}
