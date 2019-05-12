@@ -5,7 +5,7 @@ var globalData={
 	per:"http://127.0.0.1:8080/SSM/",
 	token:"5eb920d9-651f-41a6-8eaf-5f0bfbd206c4",
 	myTheme:"default",
-	setUserInfo:function(uid,uname){ 
+	setUserInfo:function(uid,uname){
 		sessionStorage.setItem("uid",uid);
 		sessionStorage.setItem("uname",uname)
 		/*sessionStorage.setItem("roleNames",roleNames)*/

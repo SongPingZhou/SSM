@@ -42,6 +42,13 @@ public class Student {
 		private String s_returnMoneyReason;
 		private Double s_preMoney;
 		private String s_preMoneyTime;
+		private Integer u_id;
+<<<<<<< HEAD
+		
+		private Integer page;
+		private Integer rows;
+=======
+>>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 		public Integer getS_id() {
 			return s_id;
 		}
@@ -288,6 +295,31 @@ public class Student {
 		public void setS_preMoneyTime(String s_preMoneyTime) {
 			this.s_preMoneyTime = s_preMoneyTime;
 		}
+<<<<<<< HEAD
+=======
+		
+>>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
+		public Integer getU_id() {
+			return u_id;
+		}
+		public void setU_id(Integer u_id) {
+			this.u_id = u_id;
+		}
+<<<<<<< HEAD
+		public Integer getPage() {
+			return page;
+		}
+		public void setPage(Integer page) {
+			this.page = page;
+		}
+		public Integer getRows() {
+			return rows;
+		}
+		public void setRows(Integer rows) {
+			this.rows = rows;
+		}
+=======
+>>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 		public Student(Integer s_id, String s_name, String s_age, String s_iphone, String s_state, String s_source,
 				String s_courceurl, String s_keywords, String s_address, String s_netpusherld, String a_askerId,
 				String s_qq, String s_wx, String s_content, String s_createTime, String s_learnforward,
@@ -296,7 +328,11 @@ public class Student {
 				String s_isReturnMoney, String s_returnMoneyTime, String s_isInClass, String s_inClassTime,
 				String s_inClassContent, String s_askerContent, String s_isdel, String s_fromPart, String s_stuConcern,
 				String s_isbaobei, String s_zixunName, String s_createUser, String s_returnMoneyReason,
-				Double s_preMoney, String s_preMoneyTime) {
+<<<<<<< HEAD
+				Double s_preMoney, String s_preMoneyTime, Integer u_id, Integer page, Integer rows) {
+=======
+				Double s_preMoney, String s_preMoneyTime, Integer u_id) {
+>>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 			super();
 			this.s_id = s_id;
 			this.s_name = s_name;
@@ -339,10 +375,15 @@ public class Student {
 			this.s_returnMoneyReason = s_returnMoneyReason;
 			this.s_preMoney = s_preMoney;
 			this.s_preMoneyTime = s_preMoneyTime;
+			this.u_id = u_id;
+<<<<<<< HEAD
+			this.page = page;
+			this.rows = rows;
+=======
+>>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 		}
 		public Student() {
 			super();
-			// TODO Auto-generated constructor stub
 		}
 		@Override
 		public String toString() {
@@ -359,7 +400,21 @@ public class Student {
 					+ s_inClassContent + ", s_askerContent=" + s_askerContent + ", s_isdel=" + s_isdel + ", s_fromPart="
 					+ s_fromPart + ", s_stuConcern=" + s_stuConcern + ", s_isbaobei=" + s_isbaobei + ", s_zixunName="
 					+ s_zixunName + ", s_createUser=" + s_createUser + ", s_returnMoneyReason=" + s_returnMoneyReason
-					+ ", s_preMoney=" + s_preMoney + ", s_preMoneyTime=" + s_preMoneyTime + "]";
+<<<<<<< HEAD
+					+ ", s_preMoney=" + s_preMoney + ", s_preMoneyTime=" + s_preMoneyTime + ", u_id=" + u_id + ", page="
+					+ page + ", rows=" + rows + "]";
 		}
 		
+		
+		
+		
+		
+		
+		
+=======
+					+ ", s_preMoney=" + s_preMoney + ", s_preMoneyTime=" + s_preMoneyTime + ", u_id=" + u_id + "]";
+		}
+		
+		
+>>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 }

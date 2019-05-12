@@ -23,41 +23,57 @@ public class LoginController {
 	
 	@RequestMapping(value="login",method=RequestMethod.POST)
 	@ResponseBody
-	public String login(Users users,HttpServletRequest request,HttpSession session,Integer yzm,HttpServletResponse resp) {
+	public String login(Users users,HttpSession session,Integer yzm,HttpServletResponse resp) {
+		System.out.println(users.getU_name());
 		Users users2 = usersService.selectUserBylogin(users);
 		String k = (String) session.getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
-		/*System.out.println(k+"后验证码");
-		System.out.println(yzm+"前验证码");*/
+		System.out.println(k+"后验证码");
+		System.out.println(yzm+"前验证码"); 
 		if(yzm==null) {
 			//前三次无验证码正常查
 			if(users2 != null) {
-				request.getSession().setAttribute("u_id", users2.getU_id());
-				//把用户名添加到cookie
-				insertCookie(resp,users2.getU_name(),users2.getU_pwd());
+				if(users2.getU_isLockout()==1) {
+					return Result.toClient(false, "用户已被锁定");
+				}
+				if(users.getU_pwd()==users2.getU_pwd()) {
+					session.setAttribute("u_id", users2.getU_id());
+					//把用户名添加到cookie
+					insertCookie(resp,users2.getU_name(),users2.getU_pwd());
+				}
 			}
-		}else {
+		}
+		if(yzm!=null){
 			//判断验证码是否正确不正确返回验证码错误正确则查询
 			/*Object a=Integer.parseInt(k)!=yzm ? Result.toClient(false, "验证码错误！") : (users2 == null ? null : request.getSession().setAttribute("u_id", users2.getU_id()));*/
 			if(Integer.parseInt(k)==yzm) {
 				//验证码正确查询
 				if(users2 != null) {
-					request.getSession().setAttribute("u_id", users2.getU_id());
-					//把用户名添加到cookie
-					insertCookie(resp,users2.getU_name(),users2.getU_pwd());
+					session.setAttribute("u_id", users2.getU_id());
+					if(users2.getU_isLockout()==1) {
+						return Result.toClient(false, "用户已被锁定");
+					}
+					if(users2.getU_isLockout()==0) {
+						//把用户名添加到cookie
+						insertCookie(resp,users2.getU_name(),users2.getU_pwd());
+					}
 				}
-			}else {
+			}
+			if(Integer.parseInt(k)!=yzm){
 				//验证码错去返回
-				return Result.toClient(false, "验证码错误！");
+				return Result.toClient(false, "验证码错误！","1");
 			}
 		}
 		//如果得到的登录用户是否被锁定状态==1则给出提示
 		//String count=users2.getU_isLockout()==1 ? "用户被锁定 ！请联系管理员解锁后登陆 " : "密码错误！";
-		if(users2 !=null) {
+		/*if(users2 !=null) {
 			if(users2.getU_isLockout()==1) {
 				return Result.toClient(false, "用户已被锁定");
 			}
-		}else {
-			return Result.toClient(false, "用户不存在");
+		}*/
+        if(users2 ==null){
+			if(users.getU_pwd()==null) {
+				return Result.toClient(false, "用户不存在");
+			}
 		}
 		return Result.toClient(users2 !=null ? true : false, users2 !=null ? users2 : "密码错误！");
 	}
