@@ -2,7 +2,7 @@ package com.spz.util;
 
 import com.google.gson.Gson;
 
-public class Result {   
+public class Result {
     public boolean success;
     public String message;
     public String remark;

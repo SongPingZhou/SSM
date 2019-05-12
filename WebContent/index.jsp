@@ -13,11 +13,12 @@
 				e = event ? event :(window.event ? window.event : null); 
 					if(e.keyCode==13){ 
 						submitLoginForm();
-					} 
+					}
 				}
 				/* 将验证码隐藏 */
 				$("#yzm").hide();
 				/* 获取cookis的值 */
+				alert($.cookie('u_name'));
 				if($.cookie('u_name') !=undefined && $.cookie('u_pwd')!=undefined){
 					$("#u_name").val($.cookie('u_name'));
 					$("#u_pwd").val($.cookie('u_pwd'));
@@ -27,6 +28,7 @@
 			});
 			
 			/* 验证用户名是否存在 */
+			var y;
 			function onblus(){
 				var u_name=$('#u_name').val();
 				$.ajax({
@@ -40,6 +42,7 @@
 						if(res.success){
 							
 						}else{
+							y=1;
 							$.messager.alert('提示信息',res.message); 
 							return;
 						}
@@ -68,14 +71,13 @@
 					url:'locking',
 					method:'post',
 					data:{
-						u_id:"1",
+						u_id:<%=request.getSession().getAttribute("u_id")%>,
 						u_isLockout:"1"
 					},
 					dataType:'json',
 					success:function(res){
 						if(res>0){
 							$.messager.alert("提示信息", "用户已锁定", "info");
-							return;
 						}
 					}
 				})
@@ -83,6 +85,11 @@
 			var num=0;
 			var n1=3;
 			function submitLoginForm() {
+				  onblus();  
+				 if(y==1){
+					 y=0;
+					 return;
+				 }  
 				if(num>=3){
 					if(!$("#yzform").form("validate")){
 						$.messager.alert("提示信息", "请输入验证码！", "info");
@@ -103,6 +110,10 @@
 								globalData.setUserInfo(<%=request.getSession().getAttribute("u_id")%>, $("#u_name").val());
 								window.location.href = "main.jsp";
 							} else{//密码错误次数大于等于三次将开启验证码
+								if(res.remark==1){
+									$.messager.alert("出错了", res.message, "error");
+									return;
+								}
 								num++;
 								if(num>=3){
 									/* num=0; */
@@ -114,7 +125,7 @@
 									}else{
 										islocking();
 										//$.messager.alert("出错了", "锁定", "error");
-										//return;
+										return;
 									} 
 								}
 								$.messager.alert("出错了", res.message, "error");

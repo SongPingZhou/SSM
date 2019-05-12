@@ -5,7 +5,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<script src="js/global.js"></script>  
+		<script src="js/global.js"></script> 
+		<script src="jquery-easyui-1.4.3/jquery.cookie.js"></script> 
 		<script>
 		//树形结构显示
 	    $(function(){
@@ -44,6 +45,8 @@
     function tuichu(){
     	$.messager.confirm("确认","你确认要推出当前页面吗？",function(r){
     		if(r){
+    			$.removeCookie('u_pwd',{ path: '/'});
+    			$.removeCookie('u_name',{ path: '/'});
 	    		sessionStorage.clear();
 	    		window.location.href="index.jsp";
     		}
