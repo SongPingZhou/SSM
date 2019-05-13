@@ -24,7 +24,7 @@ public class Student {
 		private String s_ishome;
 		private String s_homeTime;
 		private String s_lostValid;
-		private Double s_ispay;
+		private String s_ispay;
 		private String s_paytime;
 		private Double s_money;
 		private String s_isReturnMoney;
@@ -43,15 +43,10 @@ public class Student {
 		private Double s_preMoney;
 		private String s_preMoneyTime;
 		private Integer u_id;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 		
 		private Integer page;
 		private Integer rows;
-=======
->>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
-=======
->>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 		public Integer getS_id() {
 			return s_id;
 		}
@@ -190,10 +185,10 @@ public class Student {
 		public void setS_lostValid(String s_lostValid) {
 			this.s_lostValid = s_lostValid;
 		}
-		public Double getS_ispay() {
+		public String getS_ispay() {
 			return s_ispay;
 		}
-		public void setS_ispay(Double s_ispay) {
+		public void setS_ispay(String s_ispay) {
 			this.s_ispay = s_ispay;
 		}
 		public String getS_paytime() {
@@ -298,22 +293,12 @@ public class Student {
 		public void setS_preMoneyTime(String s_preMoneyTime) {
 			this.s_preMoneyTime = s_preMoneyTime;
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-		
->>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
-=======
-		
->>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 		public Integer getU_id() {
 			return u_id;
 		}
 		public void setU_id(Integer u_id) {
 			this.u_id = u_id;
 		}
-<<<<<<< HEAD
-<<<<<<< HEAD
 		public Integer getPage() {
 			return page;
 		}
@@ -326,27 +311,18 @@ public class Student {
 		public void setRows(Integer rows) {
 			this.rows = rows;
 		}
-=======
->>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
-=======
->>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
+		public Student() {
+			super();
+		}
 		public Student(Integer s_id, String s_name, String s_age, String s_iphone, String s_state, String s_source,
 				String s_courceurl, String s_keywords, String s_address, String s_netpusherld, String a_askerId,
 				String s_qq, String s_wx, String s_content, String s_createTime, String s_learnforward,
 				String s_isValid, String s_record, String s_isreturnVist, String s_fistVisitTime, String s_ishome,
-				String s_homeTime, String s_lostValid, Double s_ispay, String s_paytime, Double s_money,
+				String s_homeTime, String s_lostValid, String s_ispay, String s_paytime, Double s_money,
 				String s_isReturnMoney, String s_returnMoneyTime, String s_isInClass, String s_inClassTime,
 				String s_inClassContent, String s_askerContent, String s_isdel, String s_fromPart, String s_stuConcern,
 				String s_isbaobei, String s_zixunName, String s_createUser, String s_returnMoneyReason,
-<<<<<<< HEAD
-<<<<<<< HEAD
 				Double s_preMoney, String s_preMoneyTime, Integer u_id, Integer page, Integer rows) {
-=======
-				Double s_preMoney, String s_preMoneyTime, Integer u_id) {
->>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
-=======
-				Double s_preMoney, String s_preMoneyTime, Integer u_id) {
->>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 			super();
 			this.s_id = s_id;
 			this.s_name = s_name;
@@ -390,17 +366,8 @@ public class Student {
 			this.s_preMoney = s_preMoney;
 			this.s_preMoneyTime = s_preMoneyTime;
 			this.u_id = u_id;
-<<<<<<< HEAD
-<<<<<<< HEAD
 			this.page = page;
 			this.rows = rows;
-=======
->>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
-=======
->>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
-		}
-		public Student() {
-			super();
 		}
 		@Override
 		public String toString() {
@@ -417,28 +384,8 @@ public class Student {
 					+ s_inClassContent + ", s_askerContent=" + s_askerContent + ", s_isdel=" + s_isdel + ", s_fromPart="
 					+ s_fromPart + ", s_stuConcern=" + s_stuConcern + ", s_isbaobei=" + s_isbaobei + ", s_zixunName="
 					+ s_zixunName + ", s_createUser=" + s_createUser + ", s_returnMoneyReason=" + s_returnMoneyReason
-<<<<<<< HEAD
-<<<<<<< HEAD
 					+ ", s_preMoney=" + s_preMoney + ", s_preMoneyTime=" + s_preMoneyTime + ", u_id=" + u_id + ", page="
 					+ page + ", rows=" + rows + "]";
 		}
 		
-		
-		
-		
-		
-		
-		
-=======
-					+ ", s_preMoney=" + s_preMoney + ", s_preMoneyTime=" + s_preMoneyTime + ", u_id=" + u_id + "]";
-		}
-		
-		
->>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
-=======
-					+ ", s_preMoney=" + s_preMoney + ", s_preMoneyTime=" + s_preMoneyTime + ", u_id=" + u_id + "]";
-		}
-		
-		
->>>>>>> 7334030d2f96fed8a65881291ede1b7296c63a72
 }
