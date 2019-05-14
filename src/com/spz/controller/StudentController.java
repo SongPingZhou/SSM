@@ -15,10 +15,9 @@ public class StudentController {
 	@Resource
 	private StudentService studentService;
 	
-	@RequestMapping(value="/selectAll",method=RequestMethod.POST)
+	@RequestMapping(value="/selectAll")
 	@ResponseBody
 	public String selectAll(Student student) {
-		
 		return studentService.selectAll(student);
 		
 	}

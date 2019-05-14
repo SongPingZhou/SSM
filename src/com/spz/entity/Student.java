@@ -4,6 +4,7 @@ public class Student {
 		private Integer s_id;
 		private String s_name;
 		private String s_age;
+		private String s_sex;
 		private String s_iphone;
 		private String s_state;
 		private String s_source;
@@ -311,81 +312,12 @@ public class Student {
 		public void setRows(Integer rows) {
 			this.rows = rows;
 		}
-		public Student() {
-			super();
+		public String getS_sex() {
+			return s_sex;
 		}
-		public Student(Integer s_id, String s_name, String s_age, String s_iphone, String s_state, String s_source,
-				String s_courceurl, String s_keywords, String s_address, String s_netpusherld, String a_askerId,
-				String s_qq, String s_wx, String s_content, String s_createTime, String s_learnforward,
-				String s_isValid, String s_record, String s_isreturnVist, String s_fistVisitTime, String s_ishome,
-				String s_homeTime, String s_lostValid, String s_ispay, String s_paytime, Double s_money,
-				String s_isReturnMoney, String s_returnMoneyTime, String s_isInClass, String s_inClassTime,
-				String s_inClassContent, String s_askerContent, String s_isdel, String s_fromPart, String s_stuConcern,
-				String s_isbaobei, String s_zixunName, String s_createUser, String s_returnMoneyReason,
-				Double s_preMoney, String s_preMoneyTime, Integer u_id, Integer page, Integer rows) {
-			super();
-			this.s_id = s_id;
-			this.s_name = s_name;
-			this.s_age = s_age;
-			this.s_iphone = s_iphone;
-			this.s_state = s_state;
-			this.s_source = s_source;
-			this.s_courceurl = s_courceurl;
-			this.s_keywords = s_keywords;
-			this.s_address = s_address;
-			this.s_netpusherld = s_netpusherld;
-			this.a_askerId = a_askerId;
-			this.s_qq = s_qq;
-			this.s_wx = s_wx;
-			this.s_content = s_content;
-			this.s_createTime = s_createTime;
-			this.s_learnforward = s_learnforward;
-			this.s_isValid = s_isValid;
-			this.s_record = s_record;
-			this.s_isreturnVist = s_isreturnVist;
-			this.s_fistVisitTime = s_fistVisitTime;
-			this.s_ishome = s_ishome;
-			this.s_homeTime = s_homeTime;
-			this.s_lostValid = s_lostValid;
-			this.s_ispay = s_ispay;
-			this.s_paytime = s_paytime;
-			this.s_money = s_money;
-			this.s_isReturnMoney = s_isReturnMoney;
-			this.s_returnMoneyTime = s_returnMoneyTime;
-			this.s_isInClass = s_isInClass;
-			this.s_inClassTime = s_inClassTime;
-			this.s_inClassContent = s_inClassContent;
-			this.s_askerContent = s_askerContent;
-			this.s_isdel = s_isdel;
-			this.s_fromPart = s_fromPart;
-			this.s_stuConcern = s_stuConcern;
-			this.s_isbaobei = s_isbaobei;
-			this.s_zixunName = s_zixunName;
-			this.s_createUser = s_createUser;
-			this.s_returnMoneyReason = s_returnMoneyReason;
-			this.s_preMoney = s_preMoney;
-			this.s_preMoneyTime = s_preMoneyTime;
-			this.u_id = u_id;
-			this.page = page;
-			this.rows = rows;
+		public void setS_sex(String s_sex) {
+			this.s_sex = s_sex;
 		}
-		@Override
-		public String toString() {
-			return "Student [s_id=" + s_id + ", s_name=" + s_name + ", s_age=" + s_age + ", s_iphone=" + s_iphone
-					+ ", s_state=" + s_state + ", s_source=" + s_source + ", s_courceurl=" + s_courceurl
-					+ ", s_keywords=" + s_keywords + ", s_address=" + s_address + ", s_netpusherld=" + s_netpusherld
-					+ ", a_askerId=" + a_askerId + ", s_qq=" + s_qq + ", s_wx=" + s_wx + ", s_content=" + s_content
-					+ ", s_createTime=" + s_createTime + ", s_learnforward=" + s_learnforward + ", s_isValid="
-					+ s_isValid + ", s_record=" + s_record + ", s_isreturnVist=" + s_isreturnVist + ", s_fistVisitTime="
-					+ s_fistVisitTime + ", s_ishome=" + s_ishome + ", s_homeTime=" + s_homeTime + ", s_lostValid="
-					+ s_lostValid + ", s_ispay=" + s_ispay + ", s_paytime=" + s_paytime + ", s_money=" + s_money
-					+ ", s_isReturnMoney=" + s_isReturnMoney + ", s_returnMoneyTime=" + s_returnMoneyTime
-					+ ", s_isInClass=" + s_isInClass + ", s_inClassTime=" + s_inClassTime + ", s_inClassContent="
-					+ s_inClassContent + ", s_askerContent=" + s_askerContent + ", s_isdel=" + s_isdel + ", s_fromPart="
-					+ s_fromPart + ", s_stuConcern=" + s_stuConcern + ", s_isbaobei=" + s_isbaobei + ", s_zixunName="
-					+ s_zixunName + ", s_createUser=" + s_createUser + ", s_returnMoneyReason=" + s_returnMoneyReason
-					+ ", s_preMoney=" + s_preMoney + ", s_preMoneyTime=" + s_preMoneyTime + ", u_id=" + u_id + ", page="
-					+ page + ", rows=" + rows + "]";
-		}
+		
 		
 }

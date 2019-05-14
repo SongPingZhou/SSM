@@ -13,8 +13,8 @@ $(function(){
 
 function seachselect(){
 		$('#dg').datagrid({
-		    url:'selectAll',
-		    fitColumns:true,
+		    url:'../selectAll',
+		    fitColumns:true, 
 		    singleSelect:true,
 		    pagination:true,
 		    toolbar:"#toolbar",
@@ -40,7 +40,7 @@ function seachselect(){
 	
 	function insertStudent(){
 		$.ajax({
-			url:'insertStu',
+			url:'../insertStu',
 			method:'post',
 			data:$("#insertform").serializeArray(),
 			success:function(res){
@@ -60,7 +60,7 @@ function seachselect(){
 </script>
 </head>
 <body>
-	<table id="dg" title="客户信息" class="easyui-datagrid">   
+	<table id="dg" class="easyui-datagrid"  title="客户信息">   
     <thead>
         <tr>
             <th data-options="field:'s_id'">编号</th>   
@@ -73,11 +73,11 @@ function seachselect(){
             <th data-options="field:'s_courceurl'">来源渠道</th>   
             <th data-options="field:'s_fromPart'">来源网址</th>   
             <th data-options="field:'s_keywords'">来源关键词</th>   
-            <th data-options="field:'s_qq'">qq</th>   
-            <th data-options="field:'s_wx'">微信号</th>   
-            <th data-options="field:'s_isbaobei'">是否报备</th>   
-            <th data-options="field:'s_inClassContent'">备注</th>   
-            <th data-options="field:'suibian',formatter:'formattercaosuo'">操作</th>   
+            <th data-options="field:'s_qq'">qq</th>
+            <th data-options="field:'s_wx'">微信号</th>
+            <th data-options="field:'s_isbaobei'">是否报备</th>
+            <th data-options="field:'s_inClassContent'">备注</th>
+            <th data-options="field:'suibian',formatter:formattercaosuo">操作</th>   
         </tr>   
     </thead>   
 </table>
@@ -94,6 +94,7 @@ function seachselect(){
 <div id="insertStu" class="easyui-window" title="新增员工信息" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:300px;padding:10px; top: 200px;">
 	<form id="insertform">
 		<table cellpadding="5">
+		
 			<tr>
 				<td>客户名称:</td>
 				<td><input class="easyui-textbox" type="text" name="s_name" id="s_name" data-options="required:true"></input>

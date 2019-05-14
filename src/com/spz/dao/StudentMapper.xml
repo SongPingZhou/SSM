@@ -56,8 +56,8 @@
 			</if>
 			
 			
-			<if test="s_askerId !=null and s_askerId != ''">
-				and s_askerId = #{s_askerId}
+			<if test="a_askerId !=null and a_askerId != ''">
+				and a_askerId = #{a_askerId}
 			</if>
 			
 			
@@ -220,7 +220,7 @@
 		limit #{page},#{rows}
 	</select>
 	
-	<select id="selectStudent" parameterType="student" resultType="int">
+	<select id="CountStudent" parameterType="student" resultType="int">
 		select count(s_id) from student
 		<where>
 			<if test="s_name !=null and s_name != ''">
@@ -273,8 +273,8 @@
 			</if>
 			
 			
-			<if test="s_askerId !=null and s_askerId != ''">
-				and s_askerId = #{s_askerId}
+			<if test="a_askerId !=null and a_askerId != ''">
+				and a_askerId = #{a_askerId}
 			</if>
 			
 			
@@ -439,15 +439,91 @@
 
 	
 	<insert id="insertStudent" parameterType="student">
-		insert into student(s_name,s_name,s_iphone,s_state,s_source,s_courceurl,s_keywords,s_address,s_netpusherld,
-		a_askerId,s_qq,s_wx,s_content,s_createTime,s_learnforward,s_isValid,s_record,s_isreturnVist,
-		s_fistVisitTime,s_ishome,s_homeTime,s_lostValid,s_ispay,s_paytime,s_money,s_isReturnMoney,s_returnMoneyTime,
-		s_isInClass,s_inClassTime,s_inClassContent,s_askerContent,s_isdel,s_fromPart,s_stuConcern,s_isbaobei,
-		s_zixunName,s_createUser,s_returnMoneyReason,s_preMoney,s_preMoneyTime,s_sex,u_id
-		) values(#{s_name},#{s_name},#{s_iphone},#{s_state},#{s_source},#{s_courceurl},#{s_keywords},#{s_address},#{s_netpusherld},
-		#{a_askerId},#{s_qq},#{s_wx},#{s_content},#{s_createTime},#{s_learnforward},#{s_isValid},#{s_record},#{s_isreturnVist},
-		#{s_fistVisitTime},#{s_ishome},#{s_homeTime},#{s_lostValid},#{s_ispay},#{s_paytime},#{s_money},#{s_isReturnMoney},#{s_returnMoneyTime},
-		#{s_isInClass},#{s_inClassTime},#{s_inClassContent},#{s_askerContent},#{s_isdel},#{s_fromPart},
-		#{s_stuConcern},#{s_isbaobei},#{s_zixunName},#{s_createUser},#{s_returnMoneyReason},#{s_preMoney},#{s_preMoneyTime},#{s_sex},#{u_id})
+		INSERT INTO student (
+	s_name,
+	s_sex,
+	s_age,
+	s_iphone,
+	s_state,
+	s_source,
+	s_courceurl,
+	s_keywords,
+	s_address,
+	s_netpusherld,
+	a_askerId,
+	s_qq,
+	s_wx,
+	s_content,
+	s_createTime,
+	s_learnforward,
+	s_isValid,
+	s_record,
+	s_isreturnVist,
+	s_fistVisitTime,
+	s_ishome,
+	s_homeTime,
+	s_lostValid,
+	s_ispay,
+	s_paytime,
+	s_money,
+	s_isReturnMoney,
+	s_returnMoneyTime,
+	s_isInClass,
+	s_inClassTime,
+	s_inClassContent,
+	s_askerContent,
+	s_isdel,
+	s_fromPart,
+	s_stuConcern,
+	s_isbaobei,
+	s_zixunName,
+	s_createUser,
+	s_returnMoneyReason,
+	s_preMoney,
+	s_preMoneyTime,
+u_id 
+) values(
+		#{s_name},
+		#{s_sex},
+		#{s_age},
+		#{s_iphone},
+		#{s_state},
+		#{s_source},
+		#{s_courceurl},
+		#{s_keywords},
+		#{s_address},
+		#{s_netpusherld},
+		#{a_askerId},
+		#{s_qq},#{s_wx},
+		#{s_content},
+		#{s_createTime},
+		#{s_learnforward},
+		#{s_isValid},
+		#{s_record},
+		#{s_isreturnVist},
+		#{s_fistVisitTime},
+		#{s_ishome},
+		#{s_homeTime},
+		#{s_lostValid},
+		#{s_ispay},
+		#{s_paytime},
+		#{s_money},
+		#{s_isReturnMoney},
+		#{s_returnMoneyTime},
+		#{s_isInClass},
+		#{s_inClassTime},
+		#{s_inClassContent},
+		#{s_askerContent},
+		#{s_isdel},
+		#{s_fromPart},
+		#{s_stuConcern},
+		#{s_isbaobei},
+		#{s_zixunName},
+		#{s_createUser},
+		#{s_returnMoneyReason},
+		#{s_preMoney},
+		#{s_preMoneyTime},
+		#{u_id}
+		)
 	</insert>
 </mapper>

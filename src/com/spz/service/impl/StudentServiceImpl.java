@@ -20,6 +20,7 @@ public class StudentServiceImpl implements StudentService {
 		// TODO Auto-generated method stub
 		Fenye<Student> fy = new Fenye<Student>();
 		student.setPage((student.getPage()-1)*student.getRows());
+		
 		fy.setRows(studentMapper.selectStudent(student));
 		fy.setTotal(studentMapper.CountStudent(student));
 		return new Gson().toJson(fy);
