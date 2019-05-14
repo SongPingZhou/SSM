@@ -3,7 +3,7 @@ var globalData={
 	server:"http://127.0.0.1:8080/SSM/",
 	/*per:"http://127.0.0.1:8020/EasyUIThree/",*/
 	per:"http://127.0.0.1:8080/SSM/",
-	token:"5eb920d9-651f-41a6-8eaf-5f0bfbd206c4",
+	token:"5eb920d9-651f-41a6-8eaf-5f0bfbd206c4",/*9c7baaf5-24ce-45c9-a951-0779545f81a0*/
 	myTheme:"default",
 	setUserInfo:function(uid,uname){ 
 		sessionStorage.setItem("uid",uid);
@@ -31,4 +31,4 @@ document.write('<link rel="stylesheet" href="'+globalData.per+'jquery-easyui-1.4
 document.write('<script type="text/javascript" src="'+globalData.per+'jquery-easyui-1.4.3/jquery.min.js" ></script>');
 document.write('<script type="text/javascript" src="'+globalData.per+'jquery-easyui-1.4.3/jquery.easyui.min.js" ></script>');
 document.write('<script src="'+globalData.per+'jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js"></script>');
-document.write('<script src="'+globalData.per+'js/easyUIvalidate.js"></script>'); 
+/*document.write('<script src="'+globalData.per+'js/easyUIvalidate.js"></script>');*/ 

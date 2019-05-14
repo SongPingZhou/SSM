@@ -9,7 +9,7 @@ public class Users {
 	private String u_lastLoginTime;
 	private String u_createTime;
 	private Integer u_pwdWrongTime;
-	private Integer u_lockTime;
+	private String u_lockTime;
 	private String u_protectEmail;
 	private String u_protectMtel;
 	private Integer u_state;
@@ -59,10 +59,11 @@ public class Users {
 	public void setU_pwdWrongTime(Integer u_pwdWrongTime) {
 		this.u_pwdWrongTime = u_pwdWrongTime;
 	}
-	public Integer getU_lockTime() {
+	
+	public String getU_lockTime() {
 		return u_lockTime;
 	}
-	public void setU_lockTime(Integer u_lockTime) {
+	public void setU_lockTime(String u_lockTime) {
 		this.u_lockTime = u_lockTime;
 	}
 	public String getU_protectEmail() {

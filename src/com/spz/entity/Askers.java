@@ -1,7 +1,7 @@
 package com.spz.entity;
 
 public class Askers {
-	private String a_askerId;
+	private Integer a_askerId;
 	private String a_askerName;
 	private String a_checkState;
 	private String a_checkInTime;
@@ -10,10 +10,11 @@ public class Askers {
 	private String a_roleName;
 	private String a_bakContent;
 	private Integer us_id;
-	public String getA_askerId() {
+	
+	public Integer getA_askerId() {
 		return a_askerId;
 	}
-	public void setA_askerId(String a_askerId) {
+	public void setA_askerId(Integer a_askerId) {
 		this.a_askerId = a_askerId;
 	}
 	public String getA_askerName() {
@@ -64,19 +65,7 @@ public class Askers {
 	public void setUs_id(Integer us_id) {
 		this.us_id = us_id;
 	}
-	public Askers(String a_askerId, String a_askerName, String a_checkState, String a_checkInTime, String a_changeState,
-			Integer a_weight, String a_roleName, String a_bakContent, Integer us_id) {
-		super();
-		this.a_askerId = a_askerId;
-		this.a_askerName = a_askerName;
-		this.a_checkState = a_checkState;
-		this.a_checkInTime = a_checkInTime;
-		this.a_changeState = a_changeState;
-		this.a_weight = a_weight;
-		this.a_roleName = a_roleName;
-		this.a_bakContent = a_bakContent;
-		this.us_id = us_id;
-	}
+	
 	public Askers() {
 		super();
 		// TODO Auto-generated constructor stub

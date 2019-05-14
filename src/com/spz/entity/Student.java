@@ -4,6 +4,7 @@ public class Student {
 		private Integer s_id;
 		private String s_name;
 		private String s_age;
+		private String s_sex;
 		private String s_iphone;
 		private String s_state;
 		private String s_source;
@@ -24,7 +25,7 @@ public class Student {
 		private String s_ishome;
 		private String s_homeTime;
 		private String s_lostValid;
-		private Double s_ispay;
+		private String s_ispay;
 		private String s_paytime;
 		private Double s_money;
 		private String s_isReturnMoney;
@@ -42,6 +43,99 @@ public class Student {
 		private String s_returnMoneyReason;
 		private Double s_preMoney;
 		private String s_preMoneyTime;
+		private Integer u_id;
+		
+		
+		private String mins_createTime;
+		private String maxs_createTime;
+		private String mins_homeTime;
+		private String maxs_homeTime;
+		private String mins_fistVisitTime;
+		private String maxs_fistVisitTime;
+		private String mins_paytime;
+		private String maxs_paytime;
+		private String mins_inClassTime;
+		private String maxs_inClassTime;
+		
+		
+		public String getMins_createTime() {
+			return mins_createTime;
+		}
+		public void setMins_createTime(String mins_createTime) {
+			this.mins_createTime = mins_createTime;
+		}
+		public String getMaxs_createTime() {
+			return maxs_createTime;
+		}
+		public void setMaxs_createTime(String maxs_createTime) {
+			this.maxs_createTime = maxs_createTime;
+		}
+		public String getMins_homeTime() {
+			return mins_homeTime;
+		}
+		public void setMins_homeTime(String mins_homeTime) {
+			this.mins_homeTime = mins_homeTime;
+		}
+		public String getMaxs_homeTime() {
+			return maxs_homeTime;
+		}
+		public void setMaxs_homeTime(String maxs_homeTime) {
+			this.maxs_homeTime = maxs_homeTime;
+		}
+		public String getMins_fistVisitTime() {
+			return mins_fistVisitTime;
+		}
+		public void setMins_fistVisitTime(String mins_fistVisitTime) {
+			this.mins_fistVisitTime = mins_fistVisitTime;
+		}
+		public String getMaxs_fistVisitTime() {
+			return maxs_fistVisitTime;
+		}
+		public void setMaxs_fistVisitTime(String maxs_fistVisitTime) {
+			this.maxs_fistVisitTime = maxs_fistVisitTime;
+		}
+		public String getMins_paytime() {
+			return mins_paytime;
+		}
+		public void setMins_paytime(String mins_paytime) {
+			this.mins_paytime = mins_paytime;
+		}
+		public String getMaxs_paytime() {
+			return maxs_paytime;
+		}
+		public void setMaxs_paytime(String maxs_paytime) {
+			this.maxs_paytime = maxs_paytime;
+		}
+		public String getMins_inClassTime() {
+			return mins_inClassTime;
+		}
+		public void setMins_inClassTime(String mins_inClassTime) {
+			this.mins_inClassTime = mins_inClassTime;
+		}
+		public String getMaxs_inClassTime() {
+			return maxs_inClassTime;
+		}
+		public void setMaxs_inClassTime(String maxs_inClassTime) {
+			this.maxs_inClassTime = maxs_inClassTime;
+		}
+		private Integer page;
+		private Integer rows;
+		
+		
+		
+		public String getS_sex() {
+			return s_sex;
+		}
+		public void setS_sex(String s_sex) {
+			this.s_sex = s_sex;
+		}
+		public Integer getU_id() {
+			return u_id;
+		}
+		public void setU_id(Integer u_id) {
+			this.u_id = u_id;
+		}
+		
 		public Integer getS_id() {
 			return s_id;
 		}
@@ -180,10 +274,11 @@ public class Student {
 		public void setS_lostValid(String s_lostValid) {
 			this.s_lostValid = s_lostValid;
 		}
-		public Double getS_ispay() {
+		
+		public String getS_ispay() {
 			return s_ispay;
 		}
-		public void setS_ispay(Double s_ispay) {
+		public void setS_ispay(String s_ispay) {
 			this.s_ispay = s_ispay;
 		}
 		public String getS_paytime() {
@@ -288,78 +383,46 @@ public class Student {
 		public void setS_preMoneyTime(String s_preMoneyTime) {
 			this.s_preMoneyTime = s_preMoneyTime;
 		}
-		public Student(Integer s_id, String s_name, String s_age, String s_iphone, String s_state, String s_source,
-				String s_courceurl, String s_keywords, String s_address, String s_netpusherld, String a_askerId,
-				String s_qq, String s_wx, String s_content, String s_createTime, String s_learnforward,
-				String s_isValid, String s_record, String s_isreturnVist, String s_fistVisitTime, String s_ishome,
-				String s_homeTime, String s_lostValid, Double s_ispay, String s_paytime, Double s_money,
-				String s_isReturnMoney, String s_returnMoneyTime, String s_isInClass, String s_inClassTime,
-				String s_inClassContent, String s_askerContent, String s_isdel, String s_fromPart, String s_stuConcern,
-				String s_isbaobei, String s_zixunName, String s_createUser, String s_returnMoneyReason,
-				Double s_preMoney, String s_preMoneyTime) {
-			super();
-			this.s_id = s_id;
-			this.s_name = s_name;
-			this.s_age = s_age;
-			this.s_iphone = s_iphone;
-			this.s_state = s_state;
-			this.s_source = s_source;
-			this.s_courceurl = s_courceurl;
-			this.s_keywords = s_keywords;
-			this.s_address = s_address;
-			this.s_netpusherld = s_netpusherld;
-			this.a_askerId = a_askerId;
-			this.s_qq = s_qq;
-			this.s_wx = s_wx;
-			this.s_content = s_content;
-			this.s_createTime = s_createTime;
-			this.s_learnforward = s_learnforward;
-			this.s_isValid = s_isValid;
-			this.s_record = s_record;
-			this.s_isreturnVist = s_isreturnVist;
-			this.s_fistVisitTime = s_fistVisitTime;
-			this.s_ishome = s_ishome;
-			this.s_homeTime = s_homeTime;
-			this.s_lostValid = s_lostValid;
-			this.s_ispay = s_ispay;
-			this.s_paytime = s_paytime;
-			this.s_money = s_money;
-			this.s_isReturnMoney = s_isReturnMoney;
-			this.s_returnMoneyTime = s_returnMoneyTime;
-			this.s_isInClass = s_isInClass;
-			this.s_inClassTime = s_inClassTime;
-			this.s_inClassContent = s_inClassContent;
-			this.s_askerContent = s_askerContent;
-			this.s_isdel = s_isdel;
-			this.s_fromPart = s_fromPart;
-			this.s_stuConcern = s_stuConcern;
-			this.s_isbaobei = s_isbaobei;
-			this.s_zixunName = s_zixunName;
-			this.s_createUser = s_createUser;
-			this.s_returnMoneyReason = s_returnMoneyReason;
-			this.s_preMoney = s_preMoney;
-			this.s_preMoneyTime = s_preMoneyTime;
-		}
+		
 		public Student() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
+		public Integer getPage() {
+			return page;
+		}
+		public void setPage(Integer page) {
+			this.page = page;
+		}
+		public Integer getRows() {
+			return rows;
+		}
+		public void setRows(Integer rows) {
+			this.rows = rows;
+		}
 		@Override
 		public String toString() {
-			return "Student [s_id=" + s_id + ", s_name=" + s_name + ", s_age=" + s_age + ", s_iphone=" + s_iphone
-					+ ", s_state=" + s_state + ", s_source=" + s_source + ", s_courceurl=" + s_courceurl
-					+ ", s_keywords=" + s_keywords + ", s_address=" + s_address + ", s_netpusherld=" + s_netpusherld
-					+ ", a_askerId=" + a_askerId + ", s_qq=" + s_qq + ", s_wx=" + s_wx + ", s_content=" + s_content
-					+ ", s_createTime=" + s_createTime + ", s_learnforward=" + s_learnforward + ", s_isValid="
-					+ s_isValid + ", s_record=" + s_record + ", s_isreturnVist=" + s_isreturnVist + ", s_fistVisitTime="
-					+ s_fistVisitTime + ", s_ishome=" + s_ishome + ", s_homeTime=" + s_homeTime + ", s_lostValid="
-					+ s_lostValid + ", s_ispay=" + s_ispay + ", s_paytime=" + s_paytime + ", s_money=" + s_money
-					+ ", s_isReturnMoney=" + s_isReturnMoney + ", s_returnMoneyTime=" + s_returnMoneyTime
-					+ ", s_isInClass=" + s_isInClass + ", s_inClassTime=" + s_inClassTime + ", s_inClassContent="
-					+ s_inClassContent + ", s_askerContent=" + s_askerContent + ", s_isdel=" + s_isdel + ", s_fromPart="
-					+ s_fromPart + ", s_stuConcern=" + s_stuConcern + ", s_isbaobei=" + s_isbaobei + ", s_zixunName="
-					+ s_zixunName + ", s_createUser=" + s_createUser + ", s_returnMoneyReason=" + s_returnMoneyReason
-					+ ", s_preMoney=" + s_preMoney + ", s_preMoneyTime=" + s_preMoneyTime + "]";
+			return "Student [s_id=" + s_id + ", s_name=" + s_name + ", s_age=" + s_age + ", s_sex=" + s_sex
+					+ ", s_iphone=" + s_iphone + ", s_state=" + s_state + ", s_source=" + s_source + ", s_courceurl="
+					+ s_courceurl + ", s_keywords=" + s_keywords + ", s_address=" + s_address + ", s_netpusherld="
+					+ s_netpusherld + ", a_askerId=" + a_askerId + ", s_qq=" + s_qq + ", s_wx=" + s_wx + ", s_content="
+					+ s_content + ", s_createTime=" + s_createTime + ", s_learnforward=" + s_learnforward
+					+ ", s_isValid=" + s_isValid + ", s_record=" + s_record + ", s_isreturnVist=" + s_isreturnVist
+					+ ", s_fistVisitTime=" + s_fistVisitTime + ", s_ishome=" + s_ishome + ", s_homeTime=" + s_homeTime
+					+ ", s_lostValid=" + s_lostValid + ", s_ispay=" + s_ispay + ", s_paytime=" + s_paytime
+					+ ", s_money=" + s_money + ", s_isReturnMoney=" + s_isReturnMoney + ", s_returnMoneyTime="
+					+ s_returnMoneyTime + ", s_isInClass=" + s_isInClass + ", s_inClassTime=" + s_inClassTime
+					+ ", s_inClassContent=" + s_inClassContent + ", s_askerContent=" + s_askerContent + ", s_isdel="
+					+ s_isdel + ", s_fromPart=" + s_fromPart + ", s_stuConcern=" + s_stuConcern + ", s_isbaobei="
+					+ s_isbaobei + ", s_zixunName=" + s_zixunName + ", s_createUser=" + s_createUser
+					+ ", s_returnMoneyReason=" + s_returnMoneyReason + ", s_preMoney=" + s_preMoney
+					+ ", s_preMoneyTime=" + s_preMoneyTime + ", u_id=" + u_id + ", mins_createTime=" + mins_createTime
+					+ ", maxs_createTime=" + maxs_createTime + ", mins_homeTime=" + mins_homeTime + ", maxs_homeTime="
+					+ maxs_homeTime + ", mins_fistVisitTime=" + mins_fistVisitTime + ", maxs_fistVisitTime="
+					+ maxs_fistVisitTime + ", mins_paytime=" + mins_paytime + ", maxs_paytime=" + maxs_paytime
+					+ ", mins_inClassTime=" + mins_inClassTime + ", maxs_inClassTime=" + maxs_inClassTime + ", page="
+					+ page + ", rows=" + rows + "]";
 		}
+		
 		
 }

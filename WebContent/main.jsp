@@ -42,7 +42,7 @@
         });
     }
     function tuichu(){
-    	$.messager.confirm("确认","你确认要推出当前页面吗？",function(r){
+    	$.messager.confirm("确认","你确认要退出当前页面吗？",function(r){
     		if(r){
 	    		sessionStorage.clear();
 	    		window.location.href="index.jsp";
