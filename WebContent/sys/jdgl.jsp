@@ -4,14 +4,16 @@
 <script src="../js/global.js"></script>
 <script type="text/javascript">
 	$(function() {
+		selectroles();
+	});
+	function selectroles(){
 		$("#rolesDg").datagrid({
 			url: "../selectAllRoles",
 			queryParams: { //要发送的参数列表
-				
+				r_name:$("#rname").textbox("getValue")
 			}
 		});
-	});
-		
+	}
  	/* 打开添加窗口 */
 	function addRoles() {
 		$("#updateRoleForm").form("clear");
@@ -24,25 +26,46 @@
 	}
 	function updateRoleInfo(index){
 		//将当前数据填入表单
+		$("#updateRole_window").window({title:'修改角色'});
 		var data=$("#rolesDg").datagrid("getData");
 		var row=data.rows[index];
 		$("#updateRole_window").form("load",row);
 		$("#updateRole_window").window("open");
 	}
 	function updatesubmitRoleForms(){
-		$.ajax({
-			type:"post",
-			url:"../addEditRoles",
-			dataType:'json',
-			data:$("#updateRoleForm").serializeArray(),
-			success:function(res){
-				if(res.success){
-					$.messager.alert("提示信息",res.message);
-					$("#updateRole_window").window("close");
-					$("#rolesDg").datagrid("reload");
+		if($("#updateRoleForm").form("validate")){
+			
+			$.ajax({
+				type:'post',
+				url:'../selectByName',
+				dataType:'json',
+				data:{
+					r_name:$("#r_name").textbox("getValue")
+				},
+				success:function (res){
+					if(res.success){
+						$.ajax({
+							type:"post",
+							url:"../addEditRoles",
+							dataType:'json',
+							data:$("#updateRoleForm").serializeArray(),
+							success:function(res){
+								if(res.success){
+									$.messager.alert("提示信息",res.message);
+									$("#updateRole_window").window("close");
+									$("#rolesDg").datagrid("reload");
+								}
+							}
+						});
+					}else{
+						$.messager.alert("提示信息",res.message);
+					}
 				}
-			}
-		});
+			
+			})
+		}else{
+			$.messager.alert("提示信息", "请完成所有验证", "info");
+		}
 	}
 	function deleteRoleInfo(index){
 		var data = $("#rolesDg").datagrid("getData");
@@ -95,17 +118,19 @@
 		var str="";
 		for(var i=0;i<nodes.length;i++){
 			if(nodes[i].checked){
-				str+=","+nodes[i].id;
+				str+=","+nodes[i].id+","+nodes[i].parentId;
 			}
 		}
 		$.ajax({
-			url:globalData.server+'SetSysRights',
-			data:{"parentIds":str.substr(1),"rId":uid,"token":globalData.token},
+			url:'../setupQuanXian',
+			data:{"arr":str.substr(1),"r_id":uid},
 			method:'post',
 			dataType:'json',
 			success:function(res){
-				$("#opentreemenu").window("close");
-				$.messager.alert("提示信息","设置成功需要手动刷新才能看效果");
+				if(res.success){
+					$("#opentreemenu").window("close");
+					$.messager.alert("提示信息",res.message);
+				}
 			}
 		})
 	}
@@ -123,19 +148,21 @@
 
 <div id="tb" style="padding: 5px; height: auto;">
 	<div style="margin-bottom: 5px;">
-		<a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plan="true" onclick="addRoles()">新增</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-add'" onclick="addRoles()">新增</a>
+		角色名: <input class="easyui-textbox" id="rname">
+		<a href="javascript:void(0)" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-search'" onclick="selectroles()">检索</a>
 	</div>
 </div>
 
 
 <!--角色表单-->
-<div id="updateRole_window" class="easyui-window" title="修改员工信息" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:300px;padding:10px; top: 200px;">
+<div id="updateRole_window" class="easyui-window"  data-options="modal:true,closed:true,iconCls:'icon-save'" style="padding:10px; top: 200px;">
 	<form id="updateRoleForm">
 		<table cellpadding="5">
 			<tr>
 				<td>角色名:</td>
-				<td><input  type="hidden" name="r_id"  />
-					<input class="easyui-textbox" type="text" name="r_name" id="Name" data-options="required:true"/>
+				<td><input  type="hidden" id="r_id" name="r_id"  />
+					<input class="easyui-textbox" type="text" name="r_name" id="r_name" data-options="required:true"/>
 				</td>
 			</tr>
 		</table>

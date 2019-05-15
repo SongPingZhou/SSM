@@ -36,7 +36,7 @@ public interface UsersService {
 	Integer deleteUsers(Integer u_id);
 	
 	/**
-	 * 登陆时使用查询员工
+	 * 登陆时(注册时)使用查询员工
 	 * @param users
 	 * @return
 	 */

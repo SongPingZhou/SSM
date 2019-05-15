@@ -30,11 +30,13 @@
 	})
 	/* 点击添加时打开 */
 	function addInfo() {
+		$("#u_name").textbox({disabled:false});
 		$("#adduserForm").form("clear");
 		$("#adduser_window").window("open");
 	}
 	/* 点击修改时打开 */
 	function updateInfo(index) {
+		$("#u_name").textbox({disabled:true});
 		//将当前数据填入表单
 		var data = $("#dg").datagrid("getData");
 		var row = data.rows[index];
@@ -43,23 +45,56 @@
 		$("#adduser_window").window({title:'修改员工'});
 		$("#adduser_window").window("open");
 	}
+	
 	/* 提交方法 */
 	function submitUserForms() {
 		if($("#adduserForm").form("validate")) {
-			$.ajax({
-				url: '../insertUser',
-				method: 'post',
-				data:$("#adduserForm").serialize(),
-				dataType: 'json',
-				success: function(res) {
-					if(res.success){
-						$.messager.alert("提示信息", res.message);
-						$("#adduser_window").panel("close");
-						$("#dg").datagrid("reload");
-					} else 
-						$.messager.alert("提示信息", res.message);
-				}
-			})
+			if($("#u_id").val()>0){
+				$.ajax({
+					url: '../insertUser',
+					method: 'post',
+					data:$("#adduserForm").serialize(),
+					dataType: 'json',
+					success: function(res) {
+						if(res.success){
+							$.messager.alert("提示信息", res.message);
+							$("#adduser_window").panel("close");
+							$("#dg").datagrid("reload");
+						} else 
+							$.messager.alert("提示信息", res.message);
+					}
+				});
+			}else{
+				$.ajax({
+					method:'post',
+					url:'../selectName',
+					data:{
+						u_name:$("#u_name").textbox("getValue")
+					}, 
+					dataType:'json',
+					success:function(res){
+						if(res.success){
+							$.ajax({
+								url: '../insertUser',
+								method: 'post',
+								data:$("#adduserForm").serialize(),
+								dataType: 'json',
+								success: function(res) {
+									if(res.success){
+										$.messager.alert("提示信息", res.message);
+										$("#adduser_window").panel("close");
+										$("#dg").datagrid("reload");
+									} else {
+										$.messager.alert("提示信息", res.message);}
+								}
+							})
+						} else{
+							$.messager.alert("提示信息",res.message);
+						}
+					}
+				});		
+			}
+			
 		} else {
 			$.messager.alert("提示信息", "请完成所有验证", "info");
 		}
@@ -285,14 +320,14 @@
 				<tr>
 					<td>用户名:</td>
 					<td><input class="easyui-textbox" type="text" name="u_name" id="u_name" data-options="required:true"></input>
-						<input type="hidden" name="u_id" />
+						<input type="hidden" id="u_id" name="u_id" />
 					</td>
 				</tr>
-				<tr>
+				<!-- <tr>
 					<td>密码:</td>
 					<td><input class="easyui-textbox" type="password" id="u_pwd" name="u_pwd" data-options="required:true"></input>
 					</td>
-				</tr>
+				</tr> -->
 				<tr>
 					<td>Email:</td>
 					<td><input class="easyui-textbox" type="text" name="u_protectEmail" id="u_protectEmail" data-options="required:true,validType:'email'"></input>

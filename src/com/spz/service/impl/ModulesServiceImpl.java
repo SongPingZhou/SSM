@@ -73,13 +73,14 @@ public class ModulesServiceImpl implements ModulesService {
 	@Override
 	public List<Map<String, Object>> selectModulesByRolesId(Integer r_id) {
 		//查询角色的模块
-		List<Modules> listModules = modulesMapper.selectModulesByRolesId(r_id);
-		System.out.println("角色的模块："+listModules.size());
+		//List<Modules> listModules = modulesMapper.selectModulesByRolesId(r_id);
+		/*System.out.println("角色的模块："+listModules.size());
 		for (Modules modules : listModules) {
 			System.out.println("哈哈"+modules);
-		}
+		}*/
 		//全部模块
 		List<Modules> modulsByid = modulesMapper.selectModulesAll();
+		
 		List<Map<String, Object>> list=new ArrayList<Map<String, Object>>();
 			for(int i=0;i<modulsByid.size();i++) {
 				Map<String, Object> map=new HashMap<String, Object>();
@@ -87,22 +88,12 @@ public class ModulesServiceImpl implements ModulesService {
 					map.put("id", modulsByid.get(i).getM_id());
 					map.put("text", modulsByid.get(i).getM_name());
 					map.put("url", modulsByid.get(i).getM_path());
-					/*map.put("parentId", modulsByid.get(i).getM_parentId());*/
-					for(int j=0;j<listModules.size();j++) {
-						System.out.println("i:"+modulsByid.get(i).getM_id()+",j:"+listModules.get(j).getM_id());
-						if(modulsByid.get(i).getM_id()==listModules.get(j).getM_id()) {
-							System.out.println(modulsByid.get(i).getM_id()+"进入==,"+listModules.get(j).getM_id());
-							map.put("checked", true);
-						}
-						if(modulsByid.get(i).getM_id()!=listModules.get(j).getM_id()) {
-							map.put("checked", false);
-						}
-					}
+					map.put("parentId", modulsByid.get(i).getM_parentId());
+					map.put("checked", false);
 					map.put("children",childreChecked(modulsByid.get(i),r_id));
 				    list.add(map);
 				}
 			}
-			System.out.println(list);
 		return list;
 	}
 	public List<Map<String, Object>> childreChecked(Modules modules,Integer r_id){
@@ -116,15 +107,12 @@ public class ModulesServiceImpl implements ModulesService {
 					map.put("id", modulsByid.get(i).getM_id());
 					map.put("text", modulsByid.get(i).getM_name());
 					map.put("url", modulsByid.get(i).getM_path());
+					map.put("parentId", modulsByid.get(i).getM_parentId());
 					for(int j=0;j<listModules.size();j++) {
 						if(modulsByid.get(i).getM_id()==listModules.get(j).getM_id()) {
 							map.put("checked", true);
 						}
-						if(modulsByid.get(i).getM_id()!=listModules.get(j).getM_id()) {
-							map.put("checked", false);
-						}
 					}
-					/*map.put("parentId", modulsByid.get(i).getM_parentId());*/
 					map.put("children",childre(modulsByid.get(i)));
 				    list.add(map);
 				}

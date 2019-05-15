@@ -71,7 +71,7 @@
 					method:'post',
 					data:{
 						u_id:<%=request.getSession().getAttribute("u_id")%>,
-						u_isLockout:"1"
+						u_isLockout:"2"
 					},
 					dataType:'json',
 					success:function(res){

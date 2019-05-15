@@ -51,4 +51,11 @@ public interface RolesMapper {
 	 * @return
 	 */
 	Integer deleteRoles(Integer r_id);
+	
+	/**
+	 * 判断角色是否相同
+	 * @param roles
+	 * @return
+	 */
+	Roles selectRolesByName(Roles roles);
 }

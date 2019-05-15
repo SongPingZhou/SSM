@@ -38,6 +38,7 @@ public class UsersController {
 	@RequestMapping(value="/insertUser",method=RequestMethod.POST)
 	@ResponseBody
 	public String insertUser(Users users) {
+		System.out.println(users.toString());
 		Integer num=null;
 		if(users.getU_id()==null) {
 			num=usersService.insertUsers(users);
@@ -80,5 +81,18 @@ public class UsersController {
 	@ResponseBody
 	public Integer lockUser(Users users) {
 		return usersService.updateUsers(users);
+	}
+	
+	@RequestMapping(value="/selectName",method=RequestMethod.POST)
+	@ResponseBody
+	public String selectName(Users users) {
+		//添加用户时查询是否已经存在
+		Users userByName = usersService.selectUserBylogin(users);
+		if(userByName==null) {
+			return Result.toClient(true, "");
+		}else{
+			return Result.toClient(false, "用户已经存在");
+		}
+		//return Result.toClient(userByName==null ? false : true, userByName == null ? "" : "用户已经存在");
 	}
 }

@@ -56,7 +56,13 @@
 			where r_id=#{r_id}
 	</update>
 	
+	<!-- 删除角色 -->
 	<delete id="deleteRoles" parameterType="int">
 		delete from roles where r_id=#{r_id}
 	</delete>
+	
+	<!-- 判断角色名是否相同 -->
+	<select id="selectRolesByName" parameterType="roles" resultType="roles">
+		select r_id,r_name,r_int0,r_string0 from roles where r_name=#{r_name} 
+	</select>
 </mapper>

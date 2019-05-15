@@ -8,6 +8,7 @@
 		u_id,u_name,u_pwd,u_isLockout,u_lastLoginTime,u_createTime,u_pwdWrongTime
 			u_lockTime,u_protectEmail,u_protectMtel from Users 
 	</sql>
+	<!-- 登录时（添加时）查询用户是否存在 -->
 	<select id="selectUserBylogin" parameterType="Users" resultType="Users">
 		select <include refid="UsersSql"/>
 			<where>
@@ -23,6 +24,7 @@
 			</where>
 	</select>
 	
+	<!-- 搜索条件模糊查询数据 -->
 	<select id="selectUsersByUsers" parameterType="Users" resultType="Users">
 		select <include refid="UsersSql"/>
 			<where>
@@ -56,6 +58,7 @@
 				</if>
 	</select>
 	
+	<!-- 搜索条件模糊查询数据条数 -->
 	<select id="selectUsersByUsersCount" parameterType="Users" resultType="int">
 		select count(u_id) from Users 
 			<where>
@@ -88,7 +91,7 @@
 	
 	<!-- 管理员修改员工基本信息登录名（解锁）员工自身修改（密码） 系统自己修改（登录成功修改最后登录时间） -->
 	<update id="updateUsers" parameterType="Users">
-		update Users 
+		update users 
 			<set>
 				<if test="u_name !=null and u_name !=''">
 					u_name=#{u_name},
@@ -102,8 +105,11 @@
 				<if test="u_lastLoginTime !=null and u_lastLoginTime !=''">
 					u_lastLoginTime=#{u_lastLoginTime},
 				</if>
-				<if test="u_isLockout !=null and u_isLockout !=''">
-					u_isLockout=#{u_isLockout},
+				<if test="u_protectEmail !=null and u_protectEmail !=''">
+					u_protectEmail=#{u_protectEmail},
+				</if>
+				<if test="u_protectMtel !=null and u_protectMtel !=''">
+					u_protectMtel=#{u_protectMtel},
 				</if>
 			</set>
 			where u_id=#{u_id}
