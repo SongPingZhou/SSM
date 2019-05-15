@@ -1,11 +1,17 @@
-package com.spz.dao;
+package com.spz.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.spz.entity.Modules;
 
-public interface ModulesMapper {
-	
+
+public interface ModulesService {
+	/**
+	 * 查询所有模块
+	 * @return
+	 */
+	List<Map<String, Object>> selectModulesAll();
 	/**
 	 * 添加模块
 	 * @param modules
@@ -32,15 +38,9 @@ public interface ModulesMapper {
 	 * @return
 	 */
 	Integer deleteModulesByP_id(Integer m_parentId);
-
 	/**
-	 * 查询所有模块
-	 * @return
-	 */
-	List<Modules> selectModulesAll();
-	
-	/**
-	 * 根据id查看
+	 * 根据id查看单个模块
+	 * @param m_id
 	 * @return
 	 */
 	Modules selectModulesById(Integer m_id);
@@ -50,5 +50,5 @@ public interface ModulesMapper {
 	 * @param r_id
 	 * @return
 	 */
-	List<Modules> selectModulesByRolesId(Integer r_id);
+	List<Map<String, Object>> selectModulesByRolesId(Integer r_id);
 }

@@ -2,7 +2,7 @@ package com.spz.dao;
 
 import java.util.List;
 
-
+import com.spz.entity.Modules;
 import com.spz.entity.Users;
 
 public interface UsersMapper {
@@ -51,5 +51,16 @@ public interface UsersMapper {
 	Users selectUserBylogin(Users users);
 	
 	
+	/**
+	 * 查询登录用户的模块 
+	 * @param u_id
+	 * @return
+	 */
+	List<Modules> selectUserModuls(Integer u_id);
 	
+	/**
+	 * 查id下所有的子模块
+	 * @return
+	 */
+	List<Modules> selectModulsByid(Integer m_id,Integer u_id);
 }

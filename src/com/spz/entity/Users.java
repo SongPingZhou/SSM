@@ -17,6 +17,14 @@ public class Users {
 	private Integer page;
 	private Integer rows;
 	
+	private String beginCreateTime; //最早创建时间
+	private String endCreateTime;	//最晚创建时间
+	
+	private String beginlastLoginTime; //最早登录时间 
+	private String endlastLoginTime; //最晚登录时间 
+	
+	
+	
 	public Integer getU_id() {
 		return u_id;
 	}
@@ -98,13 +106,41 @@ public class Users {
 	public void setRows(Integer rows) {
 		this.rows = rows;
 	}
+	
+	
+	public String getBeginCreateTime() {
+		return beginCreateTime;
+	}
+	public void setBeginCreateTime(String beginCreateTime) {
+		this.beginCreateTime = beginCreateTime;
+	}
+	public String getEndCreateTime() {
+		return endCreateTime;
+	}
+	public void setEndCreateTime(String endCreateTime) {
+		this.endCreateTime = endCreateTime;
+	}
+	public String getBeginlastLoginTime() {
+		return beginlastLoginTime;
+	}
+	public void setBeginlastLoginTime(String beginlastLoginTime) {
+		this.beginlastLoginTime = beginlastLoginTime;
+	}
+	public String getEndlastLoginTime() {
+		return endlastLoginTime;
+	}
+	public void setEndlastLoginTime(String endlastLoginTime) {
+		this.endlastLoginTime = endlastLoginTime;
+	}
 	@Override
 	public String toString() {
 		return "Users [u_id=" + u_id + ", u_name=" + u_name + ", u_pwd=" + u_pwd + ", u_isLockout=" + u_isLockout
 				+ ", u_lastLoginTime=" + u_lastLoginTime + ", u_createTime=" + u_createTime + ", u_pwdWrongTime="
 				+ u_pwdWrongTime + ", u_lockTime=" + u_lockTime + ", u_protectEmail=" + u_protectEmail
 				+ ", u_protectMtel=" + u_protectMtel + ", u_state=" + u_state + ", page=" + page + ", rows=" + rows
-				+ "]";
+				+ ", beginCreateTime=" + beginCreateTime + ", endCreateTime=" + endCreateTime + ", beginlastLoginTime="
+				+ beginlastLoginTime + ", endlastLoginTime=" + endlastLoginTime + "]";
 	}
+	
 	
 }

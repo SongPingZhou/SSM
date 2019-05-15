@@ -1,7 +1,9 @@
 package com.spz.service;
 
 import java.util.List;
+import java.util.Map;
 
+import com.spz.entity.Roles;
 import com.spz.entity.Users;
 
 public interface UsersService {
@@ -39,4 +41,24 @@ public interface UsersService {
 	 * @return
 	 */
 	Users selectUserBylogin(Users users);
+	
+	/**
+	 * 查询登录的用户的模块
+	 * @param u_id
+	 * @return
+	 */
+	List<Map<String, Object>> selectUserModuls(Integer u_id);
+	
+	/**
+	 * 查询全部角色and用户现在具有的角色
+	 * @return
+	 */
+	List<Roles> selectRolesAll();
+	
+	/**
+	 * 查询用户现在具有的角色
+	 * @return
+	 */
+	List<Roles> selectRolesAllbyU_id(Integer u_id);
+	
 }

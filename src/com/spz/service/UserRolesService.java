@@ -1,10 +1,8 @@
-package com.spz.dao;
-
+package com.spz.service;
 
 import com.spz.entity.UserRoles;
 
-public interface UserRolesMapper {
-	
+public interface UserRolesService {
 	/**
 	 * 添加员工的角色
 	 * @param r_id角色id

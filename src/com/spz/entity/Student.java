@@ -4,6 +4,7 @@ public class Student {
 		private Integer s_id;
 		private String s_name;
 		private String s_age;
+		private String s_sex;
 		private String s_iphone;
 		private String s_state;
 		private String s_source;
@@ -24,7 +25,7 @@ public class Student {
 		private String s_ishome;
 		private String s_homeTime;
 		private String s_lostValid;
-		private Double s_ispay;
+		private String s_ispay;
 		private String s_paytime;
 		private Double s_money;
 		private String s_isReturnMoney;
@@ -43,6 +44,14 @@ public class Student {
 		private Double s_preMoney;
 		private String s_preMoneyTime;
 		private Integer u_id;
+		
+		
+		public String getS_sex() {
+			return s_sex;
+		}
+		public void setS_sex(String s_sex) {
+			this.s_sex = s_sex;
+		}
 		public Integer getS_id() {
 			return s_id;
 		}
@@ -181,10 +190,11 @@ public class Student {
 		public void setS_lostValid(String s_lostValid) {
 			this.s_lostValid = s_lostValid;
 		}
-		public Double getS_ispay() {
+		
+		public String getS_ispay() {
 			return s_ispay;
 		}
-		public void setS_ispay(Double s_ispay) {
+		public void setS_ispay(String s_ispay) {
 			this.s_ispay = s_ispay;
 		}
 		public String getS_paytime() {
@@ -296,19 +306,24 @@ public class Student {
 		public void setU_id(Integer u_id) {
 			this.u_id = u_id;
 		}
-		public Student(Integer s_id, String s_name, String s_age, String s_iphone, String s_state, String s_source,
-				String s_courceurl, String s_keywords, String s_address, String s_netpusherld, String a_askerId,
-				String s_qq, String s_wx, String s_content, String s_createTime, String s_learnforward,
-				String s_isValid, String s_record, String s_isreturnVist, String s_fistVisitTime, String s_ishome,
-				String s_homeTime, String s_lostValid, Double s_ispay, String s_paytime, Double s_money,
-				String s_isReturnMoney, String s_returnMoneyTime, String s_isInClass, String s_inClassTime,
-				String s_inClassContent, String s_askerContent, String s_isdel, String s_fromPart, String s_stuConcern,
-				String s_isbaobei, String s_zixunName, String s_createUser, String s_returnMoneyReason,
-				Double s_preMoney, String s_preMoneyTime, Integer u_id) {
+		public Student() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+		public Student(Integer s_id, String s_name, String s_age, String s_sex, String s_iphone, String s_state,
+				String s_source, String s_courceurl, String s_keywords, String s_address, String s_netpusherld,
+				String a_askerId, String s_qq, String s_wx, String s_content, String s_createTime,
+				String s_learnforward, String s_isValid, String s_record, String s_isreturnVist, String s_fistVisitTime,
+				String s_ishome, String s_homeTime, String s_lostValid, String s_ispay, String s_paytime,
+				Double s_money, String s_isReturnMoney, String s_returnMoneyTime, String s_isInClass,
+				String s_inClassTime, String s_inClassContent, String s_askerContent, String s_isdel, String s_fromPart,
+				String s_stuConcern, String s_isbaobei, String s_zixunName, String s_createUser,
+				String s_returnMoneyReason, Double s_preMoney, String s_preMoneyTime, Integer u_id) {
 			super();
 			this.s_id = s_id;
 			this.s_name = s_name;
 			this.s_age = s_age;
+			this.s_sex = s_sex;
 			this.s_iphone = s_iphone;
 			this.s_state = s_state;
 			this.s_source = s_source;
@@ -349,27 +364,23 @@ public class Student {
 			this.s_preMoneyTime = s_preMoneyTime;
 			this.u_id = u_id;
 		}
-		public Student() {
-			super();
-			// TODO Auto-generated constructor stub
-		}
 		@Override
 		public String toString() {
-			return "Student [s_id=" + s_id + ", s_name=" + s_name + ", s_age=" + s_age + ", s_iphone=" + s_iphone
-					+ ", s_state=" + s_state + ", s_source=" + s_source + ", s_courceurl=" + s_courceurl
-					+ ", s_keywords=" + s_keywords + ", s_address=" + s_address + ", s_netpusherld=" + s_netpusherld
-					+ ", a_askerId=" + a_askerId + ", s_qq=" + s_qq + ", s_wx=" + s_wx + ", s_content=" + s_content
-					+ ", s_createTime=" + s_createTime + ", s_learnforward=" + s_learnforward + ", s_isValid="
-					+ s_isValid + ", s_record=" + s_record + ", s_isreturnVist=" + s_isreturnVist + ", s_fistVisitTime="
-					+ s_fistVisitTime + ", s_ishome=" + s_ishome + ", s_homeTime=" + s_homeTime + ", s_lostValid="
-					+ s_lostValid + ", s_ispay=" + s_ispay + ", s_paytime=" + s_paytime + ", s_money=" + s_money
-					+ ", s_isReturnMoney=" + s_isReturnMoney + ", s_returnMoneyTime=" + s_returnMoneyTime
-					+ ", s_isInClass=" + s_isInClass + ", s_inClassTime=" + s_inClassTime + ", s_inClassContent="
-					+ s_inClassContent + ", s_askerContent=" + s_askerContent + ", s_isdel=" + s_isdel + ", s_fromPart="
-					+ s_fromPart + ", s_stuConcern=" + s_stuConcern + ", s_isbaobei=" + s_isbaobei + ", s_zixunName="
-					+ s_zixunName + ", s_createUser=" + s_createUser + ", s_returnMoneyReason=" + s_returnMoneyReason
-					+ ", s_preMoney=" + s_preMoney + ", s_preMoneyTime=" + s_preMoneyTime + ", u_id=" + u_id + "]";
+			return "Student [s_id=" + s_id + ", s_name=" + s_name + ", s_age=" + s_age + ", s_sex=" + s_sex
+					+ ", s_iphone=" + s_iphone + ", s_state=" + s_state + ", s_source=" + s_source + ", s_courceurl="
+					+ s_courceurl + ", s_keywords=" + s_keywords + ", s_address=" + s_address + ", s_netpusherld="
+					+ s_netpusherld + ", a_askerId=" + a_askerId + ", s_qq=" + s_qq + ", s_wx=" + s_wx + ", s_content="
+					+ s_content + ", s_createTime=" + s_createTime + ", s_learnforward=" + s_learnforward
+					+ ", s_isValid=" + s_isValid + ", s_record=" + s_record + ", s_isreturnVist=" + s_isreturnVist
+					+ ", s_fistVisitTime=" + s_fistVisitTime + ", s_ishome=" + s_ishome + ", s_homeTime=" + s_homeTime
+					+ ", s_lostValid=" + s_lostValid + ", s_ispay=" + s_ispay + ", s_paytime=" + s_paytime
+					+ ", s_money=" + s_money + ", s_isReturnMoney=" + s_isReturnMoney + ", s_returnMoneyTime="
+					+ s_returnMoneyTime + ", s_isInClass=" + s_isInClass + ", s_inClassTime=" + s_inClassTime
+					+ ", s_inClassContent=" + s_inClassContent + ", s_askerContent=" + s_askerContent + ", s_isdel="
+					+ s_isdel + ", s_fromPart=" + s_fromPart + ", s_stuConcern=" + s_stuConcern + ", s_isbaobei="
+					+ s_isbaobei + ", s_zixunName=" + s_zixunName + ", s_createUser=" + s_createUser
+					+ ", s_returnMoneyReason=" + s_returnMoneyReason + ", s_preMoney=" + s_preMoney
+					+ ", s_preMoneyTime=" + s_preMoneyTime + ", u_id=" + u_id + "]";
 		}
-		
 		
 }

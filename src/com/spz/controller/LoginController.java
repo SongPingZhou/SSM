@@ -1,6 +1,11 @@
 package com.spz.controller;
 
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -23,22 +28,26 @@ public class LoginController {
 	
 	@RequestMapping(value="login",method=RequestMethod.POST)
 	@ResponseBody
-	public String login(Users users,HttpSession session,Integer yzm,HttpServletResponse resp) {
-		System.out.println(users.getU_name());
+	public String login(Users users,HttpSession session,Integer yzm,HttpServletResponse resp) throws UnsupportedEncodingException {
 		Users users2 = usersService.selectUserBylogin(users);
 		String k = (String) session.getAttribute(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
-		System.out.println(k+"后验证码");
-		System.out.println(yzm+"前验证码"); 
+		/*System.out.println(k+"后验证码");
+		System.out.println(yzm+"前验证码"); */
 		if(yzm==null) {
 			//前三次无验证码正常查
 			if(users2 != null) {
-				if(users2.getU_isLockout()==1) {
-					return Result.toClient(false, "用户已被锁定");
+				if(users2.getU_isLockout()==2) {
+					return Result.toClient(false, "用户已被锁定。");
 				}
-				if(users.getU_pwd()==users2.getU_pwd()) {
-					session.setAttribute("u_id", users2.getU_id());
-					//把用户名添加到cookie
-					insertCookie(resp,users2.getU_name(),users2.getU_pwd());
+				if(users.getU_pwd()!=null) {
+					if(users.getU_pwd().equals(users2.getU_pwd())) {
+						session.setAttribute("u_id", users2.getU_id());
+						users2.setU_lastLoginTime(lastLoginTime());
+						usersService.updateUsers(users2);
+						//把用户名添加到cookie(因为cookie不能存中文，得处理一下);
+						String name=URLEncoder.encode(users2.getU_name(),"UTF-8");
+						insertCookie(resp,name,users2.getU_pwd());
+					}
 				}
 			}
 		}
@@ -49,12 +58,14 @@ public class LoginController {
 				//验证码正确查询
 				if(users2 != null) {
 					session.setAttribute("u_id", users2.getU_id());
-					if(users2.getU_isLockout()==1) {
+					if(users2.getU_isLockout()==2) {
 						return Result.toClient(false, "用户已被锁定");
 					}
-					if(users2.getU_isLockout()==0) {
+					if(users2.getU_isLockout()==1) {
 						//把用户名添加到cookie
 						insertCookie(resp,users2.getU_name(),users2.getU_pwd());
+						users2.setU_lastLoginTime(lastLoginTime());
+						usersService.updateUsers(users2);
 					}
 				}
 			}
@@ -102,5 +113,8 @@ public class LoginController {
 		//添加Cookie
 		resp.addCookie(pwds);
 	}
-	
+	public static String lastLoginTime() {
+		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddhhmmss");
+		return sdf.format(new Date());
+	}
 }

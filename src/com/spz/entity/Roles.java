@@ -5,6 +5,10 @@ public class Roles {
 		private String r_name;
 		private Integer r_int0;
 		private String r_string0;
+		
+		private Integer page;
+		private Integer rows;
+		
 		public Integer getR_id() {
 			return r_id;
 		}
@@ -29,21 +33,23 @@ public class Roles {
 		public void setR_string0(String r_string0) {
 			this.r_string0 = r_string0;
 		}
-		public Roles(Integer r_id, String r_name, Integer r_int0, String r_string0) {
-			super();
-			this.r_id = r_id;
-			this.r_name = r_name;
-			this.r_int0 = r_int0;
-			this.r_string0 = r_string0;
+		public Integer getPage() {
+			return page;
 		}
-		public Roles() {
-			super();
-			// TODO Auto-generated constructor stub
+		public void setPage(Integer page) {
+			this.page = page;
 		}
-		@Override	
+		public Integer getRows() {
+			return rows;
+		}
+		public void setRows(Integer rows) {
+			this.rows = rows;
+		}
+		@Override
 		public String toString() {
 			return "Roles [r_id=" + r_id + ", r_name=" + r_name + ", r_int0=" + r_int0 + ", r_string0=" + r_string0
-					+ "]";
+					+ ", page=" + page + ", rows=" + rows + "]";
 		}
+		
 		
 }

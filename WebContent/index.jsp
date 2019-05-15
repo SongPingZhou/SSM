@@ -18,7 +18,6 @@
 				/* 将验证码隐藏 */
 				$("#yzm").hide();
 				/* 获取cookis的值 */
-				alert($.cookie('u_name'));
 				if($.cookie('u_name') !=undefined && $.cookie('u_pwd')!=undefined){
 					$("#u_name").val($.cookie('u_name'));
 					$("#u_pwd").val($.cookie('u_pwd'));
