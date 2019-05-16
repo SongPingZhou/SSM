@@ -44,6 +44,7 @@ public class Student {
 		private Double s_preMoney;
 		private String s_preMoneyTime;
 		private Integer u_id;
+ 
 		
 		private String min_s_createTime;
 		private String max_s_createTime;
@@ -57,12 +58,13 @@ public class Student {
 		private String max_s_inClassTime;
 
 		
-		public String getS_sex() {
-			return s_sex;
-		}
-		public void setS_sex(String s_sex) {
-			this.s_sex = s_sex;
-		}
+		
+
+
+		
+		private Integer page;
+		private Integer rows;
+
 		public Integer getS_id() {
 			return s_id;
 		}
@@ -201,7 +203,6 @@ public class Student {
 		public void setS_lostValid(String s_lostValid) {
 			this.s_lostValid = s_lostValid;
 		}
-		
 		public String getS_ispay() {
 			return s_ispay;
 		}
@@ -310,7 +311,6 @@ public class Student {
 		public void setS_preMoneyTime(String s_preMoneyTime) {
 			this.s_preMoneyTime = s_preMoneyTime;
 		}
-		
 		public Integer getU_id() {
 			return u_id;
 		}
@@ -377,6 +377,22 @@ public class Student {
 		public void setMax_s_inClassTime(String max_s_inClassTime) {
 			this.max_s_inClassTime = max_s_inClassTime;
 		}
-		
-		
+		public Integer getPage() {
+			return page;
+		}
+		public void setPage(Integer page) {
+			this.page = page;
+		}
+		public Integer getRows() {
+			return rows;
+		}
+		public void setRows(Integer rows) {
+			this.rows = rows;
+		}
+		public String getS_sex() {
+			return s_sex;
+		}
+		public void setS_sex(String s_sex) {
+			this.s_sex = s_sex;
+		}
 }
