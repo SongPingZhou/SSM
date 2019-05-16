@@ -117,4 +117,9 @@ public class LoginController {
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddhhmmss");
 		return sdf.format(new Date());
 	}
+	
+	/*@RequestMapping(value="/index",method=RequestMethod.GET)
+	public String index() {
+		return "xgmm";
+	}*/
 }
