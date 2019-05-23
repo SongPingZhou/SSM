@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
+import com.spz.dao.RoleModulesMapper;
 import com.spz.entity.Modules;
+import com.spz.entity.Roles;
 import com.spz.service.ModulesService;
 import com.spz.util.Result;
 
@@ -19,6 +21,7 @@ public class ModulesController {
 	
 	@Autowired ModulesService modulesService;
 	
+	@Autowired RoleModulesMapper roleModulesMapper;
 	
 	@RequestMapping(value="/selectModules",method=RequestMethod.POST)
 	@ResponseBody
@@ -43,8 +46,12 @@ public class ModulesController {
 	@RequestMapping(value="/deleteModules",method=RequestMethod.POST)
 	@ResponseBody
 	public String deleteModules(Integer m_id) {
+		List<Roles> byModulesID = roleModulesMapper.selectRolesByModulesID(m_id);
+		if(byModulesID.size()>0) {
+			return Result.toClient(true, "该模块正在被引用您不能删除！");
+		}
 		Integer num = modulesService.deleteModules(m_id);
-		if(num>0) {
+		if(num>0){
 			//删除夫模块同时删除子模块
 			modulesService.deleteModulesByP_id(m_id);
 		}

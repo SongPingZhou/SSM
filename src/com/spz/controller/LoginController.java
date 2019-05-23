@@ -19,6 +19,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spz.entity.Users;
 import com.spz.service.UsersService;
+import com.spz.util.InitDateTime;
+import com.spz.util.MyMd5Util;
 import com.spz.util.Result;
 
 @Controller
@@ -42,7 +44,7 @@ public class LoginController {
 				if(users.getU_pwd()!=null) {
 					if(users.getU_pwd().equals(users2.getU_pwd())) {
 						session.setAttribute("u_id", users2.getU_id());
-						users2.setU_lastLoginTime(lastLoginTime());
+						users2.setU_lastLoginTime(InitDateTime.initTime());
 						usersService.updateUsers(users2);
 						//把用户名添加到cookie(因为cookie不能存中文，得处理一下);
 						String name=URLEncoder.encode(users2.getU_name(),"UTF-8");
@@ -57,14 +59,16 @@ public class LoginController {
 			if(Integer.parseInt(k)==yzm) {
 				//验证码正确查询
 				if(users2 != null) {
-					session.setAttribute("u_id", users2.getU_id());
+					
 					if(users2.getU_isLockout()==2) {
 						return Result.toClient(false, "用户已被锁定");
 					}
 					if(users2.getU_isLockout()==1) {
+						session.setAttribute("u_id", users2.getU_id());
 						//把用户名添加到cookie
-						insertCookie(resp,users2.getU_name(),users2.getU_pwd());
-						users2.setU_lastLoginTime(lastLoginTime());
+						String name=URLEncoder.encode(users2.getU_name(),"UTF-8");
+						insertCookie(resp,name,users2.getU_pwd());
+						users2.setU_lastLoginTime(InitDateTime.initTime());
 						usersService.updateUsers(users2);
 					}
 				}
@@ -113,13 +117,47 @@ public class LoginController {
 		//添加Cookie
 		resp.addCookie(pwds);
 	}
-	public static String lastLoginTime() {
-		SimpleDateFormat sdf=new SimpleDateFormat("yyyyMMddhhmmss");
-		return sdf.format(new Date());
+
+	@RequestMapping(value="/log",method=RequestMethod.GET)
+	public String login2() {
+		return "view/index";
 	}
 	
-	/*@RequestMapping(value="/index",method=RequestMethod.GET)
-	public String index() {
-		return "xgmm";
-	}*/
+	@RequestMapping(value="/main",method=RequestMethod.GET)
+	public String main() {
+		return "view/main";
+	}
+	@RequestMapping(value="/yh",method=RequestMethod.GET)
+	public String yh() {
+		return "view/yh";
+	}
+	@RequestMapping(value="/flcz",method=RequestMethod.GET)
+	public String flcz() {
+		return "view/flcz";
+	}
+	@RequestMapping(value="/jdgl",method=RequestMethod.GET)
+	public String jdgl() {
+		return "view/jdgl";
+	}
+	@RequestMapping(value="/Modules",method=RequestMethod.GET)
+	public String Modules() {
+		return "view/Modules";
+	}
+	@RequestMapping(value="/wlzxs",method=RequestMethod.GET)
+	public String wlzxs() {
+		return "view/wlzxs";
+	}
+	@RequestMapping(value="/ygqd",method=RequestMethod.GET)
+	public String ygqd() {
+		return "view/ygqd";
+	}
+	@RequestMapping(value="/yonghu",method=RequestMethod.GET)
+	public String yonghu() {
+		return "view/yonghu";
+	}
+	@RequestMapping(value="/zxs",method=RequestMethod.GET)
+	public String zxs() {
+		return "view/zxs";
+	}
+	
 }

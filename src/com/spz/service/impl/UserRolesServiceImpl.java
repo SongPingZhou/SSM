@@ -1,5 +1,7 @@
 package com.spz.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +21,11 @@ public class UserRolesServiceImpl implements UserRolesService {
 	@Override
 	public Integer deleteUserRoles(UserRoles usersRoles) {
 		return userRolesMapper.deleteUserRoles(usersRoles);
+	}
+
+	@Override
+	public List<UserRoles> selectByR_id(Integer r_id) {
+		return userRolesMapper.selectByR_id(r_id);
 	}
 
 }

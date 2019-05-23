@@ -31,4 +31,4 @@ document.write('<link rel="stylesheet" href="'+globalData.per+'jquery-easyui-1.4
 document.write('<script type="text/javascript" src="'+globalData.per+'jquery-easyui-1.4.3/jquery.min.js" ></script>');
 document.write('<script type="text/javascript" src="'+globalData.per+'jquery-easyui-1.4.3/jquery.easyui.min.js" ></script>');
 document.write('<script src="'+globalData.per+'jquery-easyui-1.4.3/locale/easyui-lang-zh_CN.js"></script>');
-document.write('<script src="'+globalData.per+'js/easyUIvalidate.js"></script>'); 
+/*document.write('<script src="'+globalData.per+'js/easyUIvalidate.js"></script>');*/

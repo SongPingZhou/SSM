@@ -14,4 +14,14 @@
 		delete from rolemodules where r_id=#{r_id}
 	</delete>
 	
+	<select id="selectRolesByModulesID" parameterType="int" resultType="Roles">
+		SELECT
+			roles.* 
+		FROM
+			modules
+			INNER JOIN rolemodules ON modules.m_id = rolemodules.m_id
+			INNER JOIN roles ON rolemodules.r_id = roles.r_id 
+		WHERE
+			modules.m_id =#{m_id}
+	</select>
 </mapper>

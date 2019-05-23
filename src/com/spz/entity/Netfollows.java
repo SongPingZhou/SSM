@@ -3,7 +3,7 @@ package com.spz.entity;
 public class Netfollows {
 	private Integer n_id;
 	private Integer s_id;
-	private String n_cname;
+	private String s_name;
 	private String n_followTime;
 	private String n_nextfollowTime;
 	private String n_content;
@@ -11,6 +11,24 @@ public class Netfollows {
 	private String n_followType;
 	private String n_createTime;
 	private String n_followState;
+	private Integer page;
+	private Integer rows;
+	
+	private String mincreateTime;
+	private String maxcreateTime;
+	
+	public Integer getPage() {
+		return page;
+	}
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+	public Integer getRows() {
+		return rows;
+	}
+	public void setRows(Integer rows) {
+		this.rows = rows;
+	}
 	public Integer getN_id() {
 		return n_id;
 	}
@@ -23,11 +41,12 @@ public class Netfollows {
 	public void setS_id(Integer s_id) {
 		this.s_id = s_id;
 	}
-	public String getN_cname() {
-		return n_cname;
+	
+	public String getS_name() {
+		return s_name;
 	}
-	public void setN_cname(String n_cname) {
-		this.n_cname = n_cname;
+	public void setS_name(String s_name) {
+		this.s_name = s_name;
 	}
 	public String getN_followTime() {
 		return n_followTime;
@@ -71,31 +90,24 @@ public class Netfollows {
 	public void setN_followState(String n_followState) {
 		this.n_followState = n_followState;
 	}
-	public Netfollows(Integer n_id, Integer s_id, String n_cname, String n_followTime, String n_nextfollowTime,
-			String n_content, String u_id, String n_followType, String n_createTime, String n_followState) {
-		super();
-		this.n_id = n_id;
-		this.s_id = s_id;
-		this.n_cname = n_cname;
-		this.n_followTime = n_followTime;
-		this.n_nextfollowTime = n_nextfollowTime;
-		this.n_content = n_content;
-		this.u_id = u_id;
-		this.n_followType = n_followType;
-		this.n_createTime = n_createTime;
-		this.n_followState = n_followState;
-	}
+	
 	public Netfollows() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	@Override
-	public String toString() {
-		return "Netfollows [n_id=" + n_id + ", s_id=" + s_id + ", n_cname=" + n_cname + ", n_followTime=" + n_followTime
-				+ ", n_nextfollowTime=" + n_nextfollowTime + ", n_content=" + n_content + ", u_id=" + u_id
-				+ ", n_followType=" + n_followType + ", n_createTime=" + n_createTime + ", n_followState="
-				+ n_followState + "]";
+	public String getMincreateTime() {
+		return mincreateTime;
 	}
+	public void setMincreateTime(String mincreateTime) {
+		this.mincreateTime = mincreateTime;
+	}
+	public String getMaxcreateTime() {
+		return maxcreateTime;
+	}
+	public void setMaxcreateTime(String maxcreateTime) {
+		this.maxcreateTime = maxcreateTime;
+	}
+	
 	
 	
 }

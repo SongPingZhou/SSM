@@ -61,4 +61,36 @@ public interface UsersService {
 	 */
 	List<Roles> selectRolesAllbyU_id(Integer u_id);
 	
+	/**
+	 *  查询已打卡咨询师成交的学生总个数，和已录入的未成交的个数，以及成功率,当天被分配的学生个数
+	 * @return Users对象里面维护了count打卡咨询师的全部学生个数，counts打卡咨询师的还未成交的学生个数，counts/count=bfb 咨询师的成功率
+	 */
+	List<Users> selectUsersByFenLiang(Users users);
+	
+	/**
+	 * 通过id去查看该咨询师是否被开启自动分配
+	 * @param u_id
+	 * @return
+	 */
+	Users selectUsersByKaiQi(Integer u_id);
+	
+	/**
+	 * 查看网络咨询师的分量情况
+	 * @return
+	 */
+	String selectUsersByflczAll(Users users);
+	
+	/**
+	 * 修改用户表中为网络咨询师的用户的状态作为是否自动分量
+	 * @param u_state
+	 * @return
+	 */
+	Integer updateUsersByu_state(Integer u_state);
+	
+	/**
+	 * 对别的员工添加经理的角色的时候做判断经理是否被人引用
+	 * @return
+	 */
+	String selectUsersJingLi();
+	
 }

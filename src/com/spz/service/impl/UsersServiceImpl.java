@@ -12,18 +12,24 @@ import org.springframework.stereotype.Service;
 
 import com.google.gson.Gson;
 import com.spz.dao.RolesMapper;
+import com.spz.dao.UserchecksMapper;
 import com.spz.dao.UsersMapper;
 import com.spz.entity.Fenye;
 import com.spz.entity.Modules;
 import com.spz.entity.Roles;
+import com.spz.entity.Userchecks;
 import com.spz.entity.Users;
 import com.spz.service.UsersService;
+import com.spz.util.MyMd5Util;
+import com.spz.util.Result;
 @Service
 public class UsersServiceImpl implements UsersService {
 	
 	@Autowired private UsersMapper usersMapper;
 	
 	@Autowired private RolesMapper rolesMapper;
+	
+	@Autowired private UserchecksMapper userchecksMapper;
 	
 	@Override
 	public String selectUsersByUsers(Users users) {
@@ -36,17 +42,28 @@ public class UsersServiceImpl implements UsersService {
 	
 	@Override
 	public Integer insertUsers(Users users) {
+		users.setU_pwd("ysd123");
 		Integer insertUsers = usersMapper.insertUsers(users);
+		Users u = usersMapper.selecuMaxUserId();
+		Userchecks userchecks=new Userchecks();
+		userchecks.setU_id(u.getU_id()+"");
+		userchecks.setUs_userName(u.getU_name());
+		userchecksMapper.insertUserchecks(userchecks);
 		return insertUsers;
 	}
 
 	@Override
 	public Integer updateUsers(Users users) {
+	/*	if(users.getU_pwd()!=null) {
+			users.setU_pwd(MyMd5Util.converMd5(users.getU_pwd()));
+		}*/
 		return usersMapper.updateUsers(users);
+		//return Result.toClient(true, users2>0 ? "修改成功" : "修改失败");
 	}
 
 	@Override
 	public Integer deleteUsers(Integer u_id) {
+		userchecksMapper.deleteUsersByUserId(u_id);
 		return usersMapper.deleteUsers(u_id);
 	}
 	
@@ -55,8 +72,10 @@ public class UsersServiceImpl implements UsersService {
 	@Override
 	public Users selectUserBylogin(Users users) {
 		//通过用户名和密码去查询
-		Users users2 = usersMapper.selectUserBylogin(users);
-		return users2;
+		/*if(users.getU_pwd()!=null) {
+			users.setU_pwd(MyMd5Util.converMd5(users.getU_pwd()));
+		}*/
+		return usersMapper.selectUserBylogin(users);
 	}
 
 	@Override
@@ -103,7 +122,43 @@ public class UsersServiceImpl implements UsersService {
 	public List<Roles> selectRolesAllbyU_id(Integer u_id) {
 		return rolesMapper.selectRolesAllbyU_id(u_id);
 	}
+	
+	//分量查询的咨询师
+	@Override
+	public List<Users> selectUsersByFenLiang(Users users) {
+		return usersMapper.selectUsersByFenLiang(users);
+	}
+
+	@Override
+	public Users selectUsersByKaiQi(Integer u_id) {
+		 
+		return usersMapper.selectUsersByKaiQi(u_id);//Result.toClient(byKaiQi.getU_state() == 1 ? true : false, "");
+	}
+
+	@Override
+	public String selectUsersByflczAll(Users users) {
+		users.setPage((users.getPage()-1)*users.getRows());
+		Fenye<Users> fy=new Fenye<Users>();
+		fy.setRows(usersMapper.selectUsersByflcz(users));
+		fy.setTotal(usersMapper.selectUsersByflczCount(users));
+		return new Gson().toJson(fy);
+	}
 
 	
+	@Override
+	public Integer updateUsersByu_state(Integer u_state) {
+		return usersMapper.updateUsersByu_state(u_state);
+	}
 
+	@Override
+	public String selectUsersJingLi() {
+		Users usersJingLi = usersMapper.selectUsersJingLi();
+		if(usersJingLi!=null) {
+			return Result.toClient(true, "经理不能设置多个！");
+		}else {
+			return Result.toClient(false, "");
+		}
+	}
+
+	
 }

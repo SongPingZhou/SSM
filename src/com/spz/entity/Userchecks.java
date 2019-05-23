@@ -8,6 +8,48 @@ public class Userchecks {
 	private String us_checkState;
 	private String us_isCancel;
 	private String us_checkoutTime;
+	
+	
+	private Integer page;
+	private Integer rows;
+	
+	private Users users;
+	private UserRoles userRoles;
+	private Roles roles;
+	
+	
+	
+	
+	public Integer getPage() {
+		return page;
+	}
+	public void setPage(Integer page) {
+		this.page = page;
+	}
+	public Integer getRows() {
+		return rows;
+	}
+	public void setRows(Integer rows) {
+		this.rows = rows;
+	}
+	public Users getUsers() {
+		return users;
+	}
+	public void setUsers(Users users) {
+		this.users = users;
+	}
+	public UserRoles getUserRoles() {
+		return userRoles;
+	}
+	public void setUserRoles(UserRoles userRoles) {
+		this.userRoles = userRoles;
+	}
+	public Roles getRoles() {
+		return roles;
+	}
+	public void setRoles(Roles roles) {
+		this.roles = roles;
+	}
 	public Integer getUs_id() {
 		return us_id;
 	}
@@ -69,7 +111,8 @@ public class Userchecks {
 	public String toString() {
 		return "Userchecks [us_id=" + us_id + ", u_id=" + u_id + ", us_userName=" + us_userName + ", us_checkinTime="
 				+ us_checkinTime + ", us_checkState=" + us_checkState + ", us_isCancel=" + us_isCancel
-				+ ", us_checkoutTime=" + us_checkoutTime + "]";
+				+ ", us_checkoutTime=" + us_checkoutTime + ", page=" + page + ", rows=" + rows + ", users=" + users
+				+ ", userRoles=" + userRoles + ", roles=" + roles + "]";
 	}
 	
 }

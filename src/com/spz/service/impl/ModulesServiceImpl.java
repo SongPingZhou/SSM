@@ -19,17 +19,15 @@ public class ModulesServiceImpl implements ModulesService {
 	public List<Map<String, Object>> selectModulesAll() {
 		List<Modules> listmoduls = modulesMapper.selectModulesAll();
 		List<Map<String, Object>> m=new ArrayList<Map<String, Object>>();
-		if(listmoduls!=null) {
-			for(int i=0;i<listmoduls.size();i++) {
-				Map<String, Object> map=new HashMap<String, Object>();
-				if(listmoduls.get(i).getM_parentId()==0){
-					map.put("id", listmoduls.get(i).getM_id());
-					map.put("text", listmoduls.get(i).getM_name());
-					map.put("url", listmoduls.get(i).getM_path());
-					/*map.put("parentId", listmoduls.get(i).getM_parentId());*/
-					map.put("children",childre(listmoduls.get(i)));
-					m.add(map);
-				}
+		for(int i=0;i<listmoduls.size();i++) {
+			Map<String, Object> map=new HashMap<String, Object>();
+			if(listmoduls.get(i).getM_parentId()==0){
+				map.put("id", listmoduls.get(i).getM_id());
+				map.put("text", listmoduls.get(i).getM_name());
+				map.put("url", listmoduls.get(i).getM_path());
+				/*map.put("parentId", listmoduls.get(i).getM_parentId());*/
+				map.put("children",childre(listmoduls.get(i)));
+				m.add(map);
 			}
 		}
 		return m;

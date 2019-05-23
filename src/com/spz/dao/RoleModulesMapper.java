@@ -3,6 +3,7 @@ package com.spz.dao;
 import java.util.List;
 
 import com.spz.entity.RoleModules;
+import com.spz.entity.Roles;
 
 public interface RoleModulesMapper {
 	
@@ -19,4 +20,11 @@ public interface RoleModulesMapper {
 	 * @return
 	 */
 	Integer deleteRoleModules(Integer r_id); 
+	
+	/**
+	 * 删除模块前判断是否被引用
+	 * @param m_id
+	 * @return
+	 */
+	List<Roles> selectRolesByModulesID(Integer m_id);
 }

@@ -9,7 +9,7 @@
 	
 	<!-- 数据库的所以表都在下面 -->
 	
-	<resultMap type="Askers" id="resultMapAskers">
+	<resultMap type="askers" id="resultMapAskers">
 		<id column="a_askerId" property="a_askerId" />
 		<result column="a_askerName" property="a_askerName" /> 
 		<result column="a_checkState" property="a_checkState" />
@@ -21,7 +21,7 @@
 		<result column="us_id" property="us_id" />
 	</resultMap>
 	
-	<resultMap type="Modules" id="resultMapModules">
+	<resultMap type="modules" id="resultMapModules">
 		<id column="m_id" property="m_id" />
 		<result column="m_name" property="m_name" /> 
 		<result column="m_parentId" property="m_parentId" />
@@ -31,7 +31,7 @@
 		<result column="m_int0" property="m_int0" />
 	</resultMap>
 	
-	<resultMap type="Netfollows" id="resultMapNetfollows">
+	<resultMap type="netfollows" id="resultMapNetfollows">
 		<id column="n_id" property="n_id" />
 		<result column="n_cname" property="n_cname" /> 
 		<result column="n_followTime" property="n_followTime" />
@@ -44,7 +44,7 @@
 		<result column="s_id" property="s_id" />
 	</resultMap>
 	
-	<resultMap type="RoleModules" id="resultMapRolempdules">
+	<resultMap type="roleModules" id="resultMapRolempdules">
 		<id column="rm_id" property="rm_id" />
 		<result column="r_id" property="r_id" /><!-- 同上 -->
 		<result column="m_id" property="m_id" />
@@ -53,17 +53,18 @@
 		
 	</resultMap>
 	
-	<resultMap type="Roles" id="resultMapRoles">
+	<resultMap type="roles" id="resultMapRoles">
 		<id column="r_id" property="r_id" />
 		<result column="r_name" property="r_name" /> 
 		<result column="r_int0" property="r_int0" />
 		<result column="r_string0" property="r_string0" />
 	</resultMap>
 	
-	<resultMap type="Student" id="resultMapStudent">
+	<resultMap type="student" id="resultMapStudent">
 		<id column="s_id" property="s_id" />
 		<result column="s_name" property="s_name" /> 
 		<result column="s_age" property="s_age" />
+		<result column="s_sex" property="s_sex" />
 		<result column="s_iphone" property="s_iphone" />
 		<result column="s_state" property="s_state" />
 		<result column="s_source" property="s_source" />
@@ -102,9 +103,14 @@
 		<result column="s_returnMoneyReason" property="s_returnMoneyReason" />
 		<result column="s_preMoney" property="s_preMoney" />
 		<result column="s_preMoneyTime" property="s_preMoneyTime" />
+		
+		<association property="users" column="users" resultMap="resultMapUsers"></association>
+		<association property="userRoles" column="userRoles" resultMap="resultMapUserroles"></association>
+		<association property="roles" column="roles" resultMap="resultMapRoles"></association>
+		
 	</resultMap>
 	
-	<resultMap type="Userchecks" id="resultMapUserchecks">
+	<resultMap type="userchecks" id="resultMapUserchecks">
 		<id column="us_id" property="us_id" />
 		<result column="u_id" property="u_id" /> 
 		<result column="us_userName" property="us_userName" />
@@ -112,15 +118,20 @@
 		<result column="us_checkState" property="us_checkState" />
 		<result column="us_isCancel" property="us_isCancel" />
 		<result column="us_checkoutTime" property="us_checkoutTime" />
+		
+		<association property="users" column="users" resultMap="resultMapUsers"></association>
+		<association property="userRoles" column="userRoles" resultMap="resultMapUserroles"></association>
+		<association property="roles" column="roles" resultMap="resultMapRoles"></association>
+		
 	</resultMap>
 	
-	<resultMap type="UserRoles" id="resultMapUserroles">
+	<resultMap type="userRoles" id="resultMapUserroles">
 		<id column="ur_id" property="ur_id" />
 		<result column="u_id" property="u_id" /> 
 		<result column="r_id" property="r_id" />
 	</resultMap>
 	
-	<resultMap type="Users" id="resultMapUsers">
+	<resultMap type="users" id="resultMapUsers">
 		<id column="u_id" property="u_id" />
 		<result column="u_name" property="u_name" /> 
 		<result column="u_pwd" property="u_pwd" />

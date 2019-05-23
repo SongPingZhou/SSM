@@ -58,13 +58,13 @@ public class Student {
 		private String max_s_inClassTime;
 
 		
-		
-
-
-		
 		private Integer page;
 		private Integer rows;
 
+		private Users users;
+		private UserRoles userRoles;
+		private Roles roles;
+		
 		public Integer getS_id() {
 			return s_id;
 		}
@@ -395,4 +395,47 @@ public class Student {
 		public void setS_sex(String s_sex) {
 			this.s_sex = s_sex;
 		}
+		public Users getUsers() {
+			return users;
+		}
+		public void setUsers(Users users) {
+			this.users = users;
+		}
+		public UserRoles getUserRoles() {
+			return userRoles;
+		}
+		public void setUserRoles(UserRoles userRoles) {
+			this.userRoles = userRoles;
+		}
+		public Roles getRoles() {
+			return roles;
+		}
+		public void setRoles(Roles roles) {
+			this.roles = roles;
+		}
+		@Override
+		public String toString() {
+			return "Student [s_id=" + s_id + ", s_name=" + s_name + ", s_age=" + s_age + ", s_sex=" + s_sex
+					+ ", s_iphone=" + s_iphone + ", s_state=" + s_state + ", s_source=" + s_source + ", s_courceurl="
+					+ s_courceurl + ", s_keywords=" + s_keywords + ", s_address=" + s_address + ", s_netpusherld="
+					+ s_netpusherld + ", a_askerId=" + a_askerId + ", s_qq=" + s_qq + ", s_wx=" + s_wx + ", s_content="
+					+ s_content + ", s_createTime=" + s_createTime + ", s_learnforward=" + s_learnforward
+					+ ", s_isValid=" + s_isValid + ", s_record=" + s_record + ", s_isreturnVist=" + s_isreturnVist
+					+ ", s_fistVisitTime=" + s_fistVisitTime + ", s_ishome=" + s_ishome + ", s_homeTime=" + s_homeTime
+					+ ", s_lostValid=" + s_lostValid + ", s_ispay=" + s_ispay + ", s_paytime=" + s_paytime
+					+ ", s_money=" + s_money + ", s_isReturnMoney=" + s_isReturnMoney + ", s_returnMoneyTime="
+					+ s_returnMoneyTime + ", s_isInClass=" + s_isInClass + ", s_inClassTime=" + s_inClassTime
+					+ ", s_inClassContent=" + s_inClassContent + ", s_askerContent=" + s_askerContent + ", s_isdel="
+					+ s_isdel + ", s_fromPart=" + s_fromPart + ", s_stuConcern=" + s_stuConcern + ", s_isbaobei="
+					+ s_isbaobei + ", s_zixunName=" + s_zixunName + ", s_createUser=" + s_createUser
+					+ ", s_returnMoneyReason=" + s_returnMoneyReason + ", s_preMoney=" + s_preMoney
+					+ ", s_preMoneyTime=" + s_preMoneyTime + ", u_id=" + u_id + ", min_s_createTime=" + min_s_createTime
+					+ ", max_s_createTime=" + max_s_createTime + ", min_s_homeTime=" + min_s_homeTime
+					+ ", max_s_homeTime=" + max_s_homeTime + ", min_s_fistVisitTime=" + min_s_fistVisitTime
+					+ ", max_s_fistVisitTime=" + max_s_fistVisitTime + ", min_s_paytime=" + min_s_paytime
+					+ ", max_s_paytime=" + max_s_paytime + ", min_s_inClassTime=" + min_s_inClassTime
+					+ ", max_s_inClassTime=" + max_s_inClassTime + ", page=" + page + ", rows=" + rows + ", users="
+					+ users + ", userRoles=" + userRoles + ", roles=" + roles + "]";
+		}
+		
 }
